@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		335A772D28DCEEA400740C3F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A772C28DCEEA400740C3F /* Model.swift */; };
 		3398D36228DB7ECF00DBCFF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */; };
 		3398D36428DB7ECF00DBCFF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */; };
 		3398D36628DB7ECF00DBCFF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36528DB7ECF00DBCFF7 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		335A772C28DCEEA400740C3F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3398D35E28DB7ECF00DBCFF7 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +39,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		335A772E28DCEEB600740C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				335A772C28DCEEA400740C3F /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3398D35528DB7ECF00DBCFF7 = {
 			isa = PBXGroup;
 			children = (
+				335A772E28DCEEB600740C3F /* Model */,
 				3398D36028DB7ECF00DBCFF7 /* UIKitDZ */,
 				3398D35F28DB7ECF00DBCFF7 /* Products */,
 			);
@@ -163,6 +174,7 @@
 				3398D36628DB7ECF00DBCFF7 /* ViewController.swift in Sources */,
 				3398D36228DB7ECF00DBCFF7 /* AppDelegate.swift in Sources */,
 				3398D36428DB7ECF00DBCFF7 /* SceneDelegate.swift in Sources */,
+				335A772D28DCEEA400740C3F /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
