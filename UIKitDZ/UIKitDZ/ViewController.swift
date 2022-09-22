@@ -75,7 +75,8 @@ class ViewController: UIViewController {
         guessButton.setTitle("Угадай число", for: .normal)
         guessButton.backgroundColor = .green
         guessButton.layer.cornerRadius = 30
-        guessButton.frame = CGRect(x: 80, y: 400, width: 230, height: 100)
+        guessButton.frame = CGRect(x: 0, y: 400, width: 230, height: 100)
+        guessButton.center.x = view.center.x
         view.addSubview(guessButton)
     }
     
