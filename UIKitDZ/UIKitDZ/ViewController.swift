@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let guessButton = UIButton()
     let sumLable = UILabel()
     let guessLabel = UILabel()
+    let labelWelcome = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,22 @@ class ViewController: UIViewController {
         
         addictionButton.addTarget(self, action: #selector(actionButtonSum(sender: )), for: .touchUpInside)
         guessButton.addTarget(self, action: #selector(actionButtonGuess(sender: )), for: .touchUpInside)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+            createAlert()
+        }
+    func createAlert() {
+        let alertFullName = UIAlertController(
+            title: "Привет!",
+            message: "Введите ваше ФИО",
+            preferredStyle: .alert)
+        let  alertActionFullName = UIAlertAction(title: "OK", style: .default) { _ in
+            let textName = alertFullName.textFields?.first?.text ?? "nil"
+            self.labelWelcome.text = "Hi! \(textName)"
+        }
+        alertFullName.addTextField()
+        alertFullName.addAction(alertActionFullName)
+        present(alertFullName, animated: true)
     }
     
     func createLabels() {
@@ -38,6 +55,13 @@ class ViewController: UIViewController {
         guessLabel.frame = CGRect(x: 0, y: 520, width: 240, height: 50)
         guessLabel.center.x = view.center.x
         view.addSubview(guessLabel)
+        
+        labelWelcome.numberOfLines = 0
+        labelWelcome.textColor = .white
+        labelWelcome.font = .systemFont(ofSize: 18)
+        labelWelcome.frame = CGRect(x: 0, y: 50, width: 200, height: 150)
+        labelWelcome.center.x = self.view.center.x
+        view.addSubview(labelWelcome)
     }
     
     func buttons() {
@@ -101,7 +125,5 @@ class ViewController: UIViewController {
         
         alertForButton.addAction(actionButton)
         present(alertForButton, animated: true)
-    }
-    override func viewWillAppear(_ animated: Bool) {
     }
 }
