@@ -94,12 +94,14 @@ class ViewController: UIViewController {
             if numberRandom == Int(valueOfApp) {
                 self.guessLabel.text = "Ты угадал! \(valueOfApp)"
             } else {
-                self.guessLabel.text = "Не угадал мое число - \(numberRandom)"
+                self.guessLabel.text = "Не угадал👻мое число - \(numberRandom)"
             }
         }
         alertForButton.addTextField()
         
         alertForButton.addAction(actionButton)
         present(alertForButton, animated: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
     }
 }
