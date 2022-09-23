@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Struct
+/// Struct - Welcome to User
 struct SayHello {
     let hello = "Hello"
 }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Начальний VC
+/// First View Controller
 class ViewController: UIViewController {
     let sayHello = SayHello()
     let bigButton = UIButton()
@@ -14,12 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        settingsViewController()
         bigButtonSettings()
-        labelBigButtonSettings()
-        bigButton.addTarget(self, action: #selector(actionForBigButton(sender: )), for: .touchUpInside)
+        createButton()
     }
-    func labelBigButtonSettings() {
+    func settingsViewController() {
+        view.backgroundColor = .systemBlue
+    }
+    func createButton() {
         labelBigButton.numberOfLines = 0
         labelBigButton.textColor = .white
         labelBigButton.font = .systemFont(ofSize: 20)
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
     }
     
     func bigButtonSettings() {
+        bigButton.addTarget(self, action: #selector(bigButtonAction(sender: )), for: .touchUpInside)
         bigButton.setTitle("Начать", for: .normal)
         bigButton.titleLabel?.textColor = .black
         bigButton.backgroundColor = .lightGray
@@ -35,7 +38,7 @@ class ViewController: UIViewController {
         bigButton.layer.cornerRadius = 30
         view.addSubview(bigButton)
     }
-    @objc func actionForBigButton(sender: UIButton) {
+    @objc func bigButtonAction(sender: UIButton) {
         let alertForBigButton = UIAlertController(
             title: "Внимание",
             message: "введите слово",
