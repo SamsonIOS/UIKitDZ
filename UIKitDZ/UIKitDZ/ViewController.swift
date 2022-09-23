@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Начальний VC
+/// First View Controller
 class ViewController: UIViewController {
 
     let addictionButton = UIButton()
@@ -17,16 +17,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .gray
-        buttons()
+        settingsFirstViewController()
+        targetsForButtons()
+        createButtons()
         createLabels()
-        
-        addictionButton.addTarget(self, action: #selector(actionButtonSum(sender: )), for: .touchUpInside)
-        guessButton.addTarget(self, action: #selector(actionButtonGuess(sender: )), for: .touchUpInside)
+    
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
             createAlert()
         }
+    func settingsFirstViewController() {
+        self.view.backgroundColor = .gray
+    }
+    func targetsForButtons() {
+        addictionButton.addTarget(self, action: #selector(actionButtonAction(sender: )), for: .touchUpInside)
+        guessButton.addTarget(self, action: #selector(actionButtonGuess(sender: )), for: .touchUpInside)
+    }
     func createAlert() {
         let alertFullName = UIAlertController(
             title: "Привет!",
@@ -64,7 +71,7 @@ class ViewController: UIViewController {
         view.addSubview(labelWelcome)
     }
     
-    func buttons() {
+    func createButtons() {
         addictionButton.setTitle("Сложение", for: .normal)
         addictionButton.backgroundColor = .green
         addictionButton.layer.cornerRadius = 30
@@ -80,7 +87,7 @@ class ViewController: UIViewController {
         view.addSubview(guessButton)
     }
     
-    @objc func actionButtonSum(sender: UIButton) {
+    @objc func actionButtonAction(sender: UIButton) {
         
         let alertForButton = UIAlertController(
             title: "Математика",
