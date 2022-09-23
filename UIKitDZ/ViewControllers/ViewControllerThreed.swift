@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Threed VC
+/// Threed View Controller - info about order
 class ViewControllerThreed: UIViewController {
 
     @IBOutlet weak var priceForAll: UILabel!

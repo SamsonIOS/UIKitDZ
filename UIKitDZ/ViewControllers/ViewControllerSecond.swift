@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Second VC
+/// Second View Controller - Information about order
 class ViewControllerSecondSubClass: UIViewController {
 
     @IBOutlet weak var fullNameTextField: UITextField!
