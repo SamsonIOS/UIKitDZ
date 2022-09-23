@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// View Controller - экран с кнопкой, которая принимает слово.
+/// ViewController - экран с кнопкой, которая принимает слово.
 class ViewController: UIViewController {
     let sayHello = SayHello()
     let bigButton = UIButton()
