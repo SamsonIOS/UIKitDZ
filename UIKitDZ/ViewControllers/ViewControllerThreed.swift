@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Threed View Controller - Экран с счетом за блюда
+/// ViewControllerThreed - Экран с счетом за блюда
 class ViewControllerThreed: UIViewController {
 
     @IBOutlet weak var priceForAll: UILabel!
