@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Struct - Welcome to User
+/// Struct - Возвращает нам слово Hello, при вводе слова leohl
 struct SayHello {
     let hello = "Hello"
 }
