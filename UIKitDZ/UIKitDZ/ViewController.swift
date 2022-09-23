@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// First View Controller
+/// View Controller - экран с двумя играми
 class ViewController: UIViewController {
 
     let addictionButton = UIButton()
