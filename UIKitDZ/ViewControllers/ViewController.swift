@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// First View Controller - sign in App
+/// First View Controller - экран со входом в приложение
 class ViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Second View Controller - Information about order
+/// Second View Controller - Экран с информацией о заказе
 class ViewControllerSecondSubClass: UIViewController {
 
     @IBOutlet weak var fullNameTextField: UITextField!
