@@ -73,7 +73,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="QhZ-Hp-gp8" kind="show" id="kgN-Su-LQh"/>
+                                    <segue destination="QhZ-Hp-gp8" kind="show" id="PiI-wr-0kI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-rO-ccf">
@@ -82,7 +82,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="LqD-5b-otP" kind="show" id="0d3-cD-La3"/>
+                                    <segue destination="LqD-5b-otP" kind="show" id="MpF-RG-Zvu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,7 +100,7 @@
             <objects>
                 <viewController storyboardIdentifier="vc2" id="QhZ-Hp-gp8" customClass="FirstTrackViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqB-6I-QbM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mondayphoto" translatesAutoresizingMaskIntoConstraints="NO" id="llV-9Q-liq">
@@ -131,10 +131,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="39"/>
                                     <color key="baseForegroundColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="backButton:" destination="QhZ-Hp-gp8" eventType="touchUpInside" id="zaR-Tg-h2r"/>
-                                    <action selector="buttonPlayVack:" destination="QhZ-Hp-gp8" eventType="touchUpInside" id="vke-ht-z3R"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2M9-5L-5GH">
                                 <rect key="frame" x="259" y="634" width="82" height="61"/>
@@ -145,8 +141,7 @@
                                     <color key="baseForegroundColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="buttonPlayForward:" destination="QhZ-Hp-gp8" eventType="touchUpInside" id="cap-xN-45E"/>
-                                    <action selector="forwardAction:" destination="QhZ-Hp-gp8" eventType="touchUpInside" id="8R3-bd-qg2"/>
+                                    <segue destination="LqD-5b-otP" kind="show" id="rji-es-i6m"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="volume.fill" catalog="system" maximumValueImage="volume.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="BEs-jg-Ywy">
@@ -208,14 +203,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe1-d2-at1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697.1014492753625" y="71.651785714285708"/>
+            <point key="canvasLocation" x="1668" y="-220"/>
         </scene>
         <!--Second Track View Controller-->
         <scene sceneID="SfO-ur-bUD">
             <objects>
                 <viewController storyboardIdentifier="vc3" id="LqD-5b-otP" customClass="SecondTrackViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xJK-WP-v56">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="musicphoto" translatesAutoresizingMaskIntoConstraints="NO" id="Txx-4Y-jbW">
@@ -247,6 +242,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="39"/>
                                     <color key="baseForegroundColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="QhZ-Hp-gp8" kind="show" id="dhX-tR-CEW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCK-S5-FvI">
                                 <rect key="frame" x="260" y="634" width="82" height="61"/>
@@ -274,7 +272,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-oE-Bpv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-oE-Bpv">
                                 <rect key="frame" x="307" y="506" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -317,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqL-0F-1Y3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="72"/>
+            <point key="canvasLocation" x="1694" y="457"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lw1-gw-NwX">
@@ -338,6 +336,10 @@
             <point key="canvasLocation" x="-26.086956521739133" y="71.651785714285708"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rji-es-i6m"/>
+        <segue reference="dhX-tR-CEW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>

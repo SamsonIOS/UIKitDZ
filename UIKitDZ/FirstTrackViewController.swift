@@ -17,11 +17,11 @@ class FirstTrackViewController: UIViewController {
         player.volume = sliderVolume.value
     }
     
-    @IBAction func forwardAction(_ sender: UIButton) {
-        guard let newVc = storyboard?.instantiateViewController(withIdentifier: "vc3")
-                as? SecondTrackViewController else { return }
-        self.present(newVc, animated: true)
-    }
+//    @IBAction func forwardAction(_ sender: UIButton) {
+//        guard let newVc = storyboard?.instantiateViewController(withIdentifier: "vc3")
+//                as? SecondTrackViewController else { return }
+//        self.present(newVc, animated: true)
+//    }
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var labelTimeTrack: UILabel!
     @IBOutlet weak var labelTimeTrackFinish: UILabel!
