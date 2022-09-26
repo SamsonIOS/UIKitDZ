@@ -263,6 +263,9 @@
                                 <color key="tintColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="minimumTrackTintColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="thumbTintColor" red="0.1826842169" green="0.68820801600000003" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="sliderVolumeAction:" destination="LqD-5b-otP" eventType="valueChanged" id="c5e-0w-3or"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-FH-zEQ">
                                 <rect key="frame" x="45" y="506" width="51" height="21"/>
@@ -305,9 +308,11 @@
                     <navigationItem key="navigationItem" id="gTL-ZH-rX2"/>
                     <connections>
                         <outlet property="buttonPlay" destination="eUb-0Q-nPx" id="qCz-Ll-x3u"/>
+                        <outlet property="labelTimeFinish" destination="MBp-oE-Bpv" id="CbO-hW-99c"/>
                         <outlet property="labelTimeTrack" destination="Usk-FH-zEQ" id="ToJ-zB-pZ5"/>
                         <outlet property="secondImageTrack" destination="Txx-4Y-jbW" id="rkb-Qq-gfJ"/>
                         <outlet property="slider" destination="RHr-8u-t6m" id="dUa-bQ-3rf"/>
+                        <outlet property="sliderVolume" destination="GaW-4U-xCP" id="asq-8z-XJy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqL-0F-1Y3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

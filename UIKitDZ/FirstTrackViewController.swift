@@ -8,28 +8,30 @@ import AVFoundation
 import UIKit
 /// FirstTrackViewController - экран с первым треком
 class FirstTrackViewController: UIViewController {
-
+    
     var player = AVAudioPlayer()
     
     @IBOutlet weak var imageFirstTrack: UIImageView!
-    
     @IBOutlet weak var sliderVolume: UISlider!
-    
     @IBAction func sliderVolumeAction(_ sender: UISlider) {
         player.volume = sliderVolume.value
     }
     
     @IBAction func forwardAction(_ sender: UIButton) {
+        guard let newVc = storyboard?.instantiateViewController(withIdentifier: "vc3")
+                as? SecondTrackViewController else { return }
+        self.present(newVc, animated: true)
     }
     @IBOutlet weak var slider: UISlider!
-    
     @IBOutlet weak var labelTimeTrack: UILabel!
-    
     @IBOutlet weak var labelTimeTrackFinish: UILabel!
-    
-    var count = 1
-    
     @IBOutlet weak var buttonPlay: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        settingsPlayer()
+        timer()
+    }
     @IBAction func buttonPlayAction(_ sender: UIButton) {
         if player.isPlaying {
             let playImage = UIImage(systemName: "play.circle.fill")
@@ -40,12 +42,6 @@ class FirstTrackViewController: UIViewController {
             buttonPlay.setImage(pauseImage, for: .normal)
             player.play()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        settingsPlayer()
-        timer()
     }
     @IBAction func backButton(_ sender: Any) {
         
@@ -77,13 +73,13 @@ class FirstTrackViewController: UIViewController {
         
         slider.setValue(Float(self.player.currentTime), animated: true)
     }
-   
+    
     func settingsPlayer() {
         do {
             if let audioPath = Bundle.main.path(forResource: "track1", ofType: "mp3") {
-            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-            self.slider.maximumValue = Float(player.duration)
-        }
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                self.slider.maximumValue = Float(player.duration)
+            }
         } catch {
             print("error")
         }
