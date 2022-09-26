@@ -12,7 +12,6 @@ class SecondTrackViewController: UIViewController {
     var player = AVAudioPlayer()
     
     @IBOutlet weak var secondImageTrack: UIImageView!
-    @IBOutlet weak var labelTimeStart: UILabel!
     @IBOutlet weak var labelTimeFinish: UILabel!
     @IBOutlet weak var sliderVolume: UISlider!
     @IBOutlet weak var slider: UISlider!

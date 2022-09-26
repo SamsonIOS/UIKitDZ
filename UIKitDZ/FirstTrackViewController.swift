@@ -43,9 +43,7 @@ class FirstTrackViewController: UIViewController {
             player.play()
         }
     }
-    @IBAction func backButton(_ sender: Any) {
-        
-    }
+
     @IBAction func sliderAction(_ sender: UISlider) {
         if sender == slider {
             self.player.currentTime = TimeInterval(sender.value)
