@@ -13,9 +13,8 @@
 		3398D36928DB7ECF00DBCFF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36728DB7ECF00DBCFF7 /* Main.storyboard */; };
 		3398D36B28DB7ED100DBCFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */; };
 		3398D36E28DB7ED100DBCFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36C28DB7ED100DBCFF7 /* LaunchScreen.storyboard */; };
-		33A29B8F28E1DCC70045E0E9 /* musicphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 33A29B8C28E1DCC70045E0E9 /* musicphoto.jpeg */; };
-		33A29B9028E1DCC70045E0E9 /* mondayphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 33A29B8D28E1DCC70045E0E9 /* mondayphoto.jpeg */; };
-		33A29B9128E1DCC70045E0E9 /* fff.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A29B8E28E1DCC70045E0E9 /* fff.png */; };
+		33A29B9328E1EAD30045E0E9 /* cyberlogo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 33A29B9228E1EAD30045E0E9 /* cyberlogo.jpeg */; };
+		33A29B9528E1F5790045E0E9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A29B9428E1F5790045E0E9 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +26,8 @@
 		3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3398D36D28DB7ED100DBCFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3398D36F28DB7ED100DBCFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33A29B8C28E1DCC70045E0E9 /* musicphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musicphoto.jpeg; sourceTree = "<group>"; };
-		33A29B8D28E1DCC70045E0E9 /* mondayphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mondayphoto.jpeg; sourceTree = "<group>"; };
-		33A29B8E28E1DCC70045E0E9 /* fff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fff.png; sourceTree = "<group>"; };
+		33A29B9228E1EAD30045E0E9 /* cyberlogo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cyberlogo.jpeg; sourceTree = "<group>"; };
+		33A29B9428E1F5790045E0E9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +62,23 @@
 			children = (
 				3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */,
 				3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */,
-				3398D36528DB7ECF00DBCFF7 /* SignViewController.swift */,
+				33A29B9628E1F5840045E0E9 /* ViewControllers */,
 				3398D36728DB7ECF00DBCFF7 /* Main.storyboard */,
 				3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */,
-				33A29B8E28E1DCC70045E0E9 /* fff.png */,
-				33A29B8D28E1DCC70045E0E9 /* mondayphoto.jpeg */,
-				33A29B8C28E1DCC70045E0E9 /* musicphoto.jpeg */,
+				33A29B9228E1EAD30045E0E9 /* cyberlogo.jpeg */,
 				3398D36C28DB7ED100DBCFF7 /* LaunchScreen.storyboard */,
 				3398D36F28DB7ED100DBCFF7 /* Info.plist */,
 			);
 			path = UIKitDZ;
+			sourceTree = "<group>";
+		};
+		33A29B9628E1F5840045E0E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3398D36528DB7ECF00DBCFF7 /* SignViewController.swift */,
+				33A29B9428E1F5790045E0E9 /* InfoViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,11 +140,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33A29B9128E1DCC70045E0E9 /* fff.png in Resources */,
-				33A29B9028E1DCC70045E0E9 /* mondayphoto.jpeg in Resources */,
+				33A29B9328E1EAD30045E0E9 /* cyberlogo.jpeg in Resources */,
 				3398D36E28DB7ED100DBCFF7 /* LaunchScreen.storyboard in Resources */,
 				3398D36B28DB7ED100DBCFF7 /* Assets.xcassets in Resources */,
-				33A29B8F28E1DCC70045E0E9 /* musicphoto.jpeg in Resources */,
 				3398D36928DB7ECF00DBCFF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +177,7 @@
 			files = (
 				3398D36628DB7ECF00DBCFF7 /* SignViewController.swift in Sources */,
 				3398D36228DB7ECF00DBCFF7 /* AppDelegate.swift in Sources */,
+				33A29B9528E1F5790045E0E9 /* InfoViewController.swift in Sources */,
 				3398D36428DB7ECF00DBCFF7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
