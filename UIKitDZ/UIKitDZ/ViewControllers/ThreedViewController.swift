@@ -58,7 +58,10 @@ class ThreedViewController: UIViewController {
                                  for: .allEditingEvents)
     }
     @objc private func instagramAction(sender: UITextField) {
-        let alertController = UIAlertController(title: .none, message: "Введите instagram", preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: .none,
+            message: "Введите логин instagram",
+            preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
             
             let text = alertController.textFields?.first?.text ?? ""
