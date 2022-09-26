@@ -8,6 +8,7 @@
 import UIKit
 /// ViewController - Первый экран
 class ViewController: UIViewController {
+    let labelReminder = UILabel()
     let emailLabel = UILabel()
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
@@ -39,6 +40,13 @@ class ViewController: UIViewController {
         
     }
     func settingsLabels() {
+        labelReminder.text = "Birthday Reminder"
+        labelReminder.font = .boldSystemFont(ofSize: 20)
+        labelReminder.frame = CGRect(x: 0, y: 150, width: 200, height: 100)
+        labelReminder.center.x = view.center.x
+        labelReminder.textColor = .systemBlue
+        view.addSubview(labelReminder)
+        
         textSignIn.text = "Sign In"
         textSignIn.font = .boldSystemFont(ofSize: 25)
         textSignIn.frame = CGRect(x: 50, y: 265, width: 100, height: 100)

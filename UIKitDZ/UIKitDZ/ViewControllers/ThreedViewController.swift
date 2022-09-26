@@ -102,7 +102,6 @@ class ThreedViewController: UIViewController {
         genderField.inputView = pickerGender
     }
     @objc func donePicker() {
-       // self.ageField.text
         self.view.endEditing(true)
     }
     func createDatePicker () {
