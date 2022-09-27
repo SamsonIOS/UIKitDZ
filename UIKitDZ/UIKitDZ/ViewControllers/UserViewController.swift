@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-/// UserViewController - второй экран с добавлением нового человека
+/// UserViewController - Второй экран с информацией о дне рождении контактов
 class UserViewController: UIViewController {
     
     let firstImage: UIImageView = {

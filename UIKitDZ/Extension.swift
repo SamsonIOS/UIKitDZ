@@ -35,9 +35,9 @@ extension AddUserViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 0:
-            self.ageField.text = String(row)
+            self.ageTextField.text = String(row)
         case 1:
-            self.genderField.text = gender[row]
+            self.genderTextField.text = gender[row]
         default:
             break
         }

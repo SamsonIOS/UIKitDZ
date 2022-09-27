@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-/// AddUserViewController - Информация о пользователе
+/// AddUserViewController - Третий экран с добавлением нового человека
 class AddUserViewController: UIViewController {
    
     let imageUser: UIImageView = {
@@ -21,26 +21,29 @@ class AddUserViewController: UIViewController {
         imageUser.clipsToBounds = true
         return imageUser
     }()
-    let labelChangePhoto = UILabel()
-    let labelName = UILabel()
-    let labelDate = UILabel()
-    let labelAge = UILabel()
-    let labelGender = UILabel()
-    let labelInstagram = UILabel()
+    let changePhotoLabel = UILabel()
+    let nameLabel = UILabel()
+    let dateLabel = UILabel()
+    let ageLabel = UILabel()
+    let genderLabel = UILabel()
+    let instagramLabel = UILabel()
     
-    let nameField = UITextField()
-    let dateField = UITextField()
-    let ageField = UITextField()
-    let genderField = UITextField()
-    let instagramField = UITextField()
+    let nameTextField = UITextField()
+    let dateTextField = UITextField()
+    let ageTextField = UITextField()
+    let genderTextField = UITextField()
+    let instagramTextField = UITextField()
     
     let datePicker = UIDatePicker()
-    let pickerViewAge = UIPickerView()
-    let pickerGender = UIPickerView()
+    let viewAgePicker = UIPickerView()
+    let genderViewPicker = UIPickerView()
     let gender = ["Male", "Famale"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+    }
+    func configureView() {
         buttonCancel()
         settingsThreedVc()
         buttonEmpty()
@@ -50,14 +53,13 @@ class AddUserViewController: UIViewController {
         pickerAgeAndGender()
         instagramAlert()
         settingsPickerAgeAndGender()
-        
     }
     func instagramAlert() {
-        instagramField.addTarget(self,
-                                 action: #selector(instagramAction(sender:)),
+        instagramTextField.addTarget(self,
+                                 action: #selector(instagramAlertAction(sender:)),
                                  for: .allEditingEvents)
     }
-    @objc private func instagramAction(sender: UITextField) {
+    @objc private func instagramAlertAction(sender: UITextField) {
         let alertController = UIAlertController(
             title: .none,
             message: "Введите логин instagram",
@@ -65,7 +67,7 @@ class AddUserViewController: UIViewController {
         let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
             
             let text = alertController.textFields?.first?.text ?? ""
-            self.instagramField.text = text
+            self.instagramTextField.text = text
         }
         let alertCancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         alertController.addTextField()
@@ -74,14 +76,14 @@ class AddUserViewController: UIViewController {
         present(alertController, animated: true)
     }
     func settingsPickerAgeAndGender() {
-        pickerViewAge.delegate = self
-        pickerViewAge.dataSource = self
+        viewAgePicker.delegate = self
+        viewAgePicker.dataSource = self
         
-        pickerGender.delegate = self
-        pickerGender.dataSource = self
+        genderViewPicker.delegate = self
+        genderViewPicker.dataSource = self
         
-        pickerViewAge.tag = 0
-        pickerGender.tag = 1
+        viewAgePicker.tag = 0
+        genderViewPicker.tag = 1
     }
     func pickerAgeAndGender() {
         // toolbar
@@ -93,16 +95,16 @@ class AddUserViewController: UIViewController {
             target: nil,
             action: #selector(donePicker))
         toolBar.setItems([doneButtonAge], animated: true)
-        ageField.inputAccessoryView = toolBar
-        ageField.inputView = pickerViewAge
+        ageTextField.inputAccessoryView = toolBar
+        ageTextField.inputView = viewAgePicker
         
         let doneButtonGender = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: nil,
             action: #selector(donePicker))
         toolBar.setItems([doneButtonGender], animated: true)
-        genderField.inputAccessoryView = toolBar
-        genderField.inputView = pickerGender
+        genderTextField.inputAccessoryView = toolBar
+        genderTextField.inputView = genderViewPicker
     }
     @objc func donePicker() {
         self.view.endEditing(true)
@@ -118,10 +120,10 @@ class AddUserViewController: UIViewController {
             action: #selector(donePressed))
         toolBar.setItems([doneButton], animated: true)
         /// assign toolbar
-        dateField.inputAccessoryView = toolBar
+        dateTextField.inputAccessoryView = toolBar
         
         /// assign date picker to the text field
-        dateField.inputView = datePicker
+        dateTextField.inputView = datePicker
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
     }
@@ -131,74 +133,74 @@ class AddUserViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        self.dateField.text = dateFormatter.string(from: datePicker.date)
+        self.dateTextField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     func settingsLabels() {
-        labelChangePhoto.text = "Изменить фото"
-        labelChangePhoto.font = .systemFont(ofSize: 22)
-        labelChangePhoto.textColor = .systemBlue
-        labelChangePhoto.frame = CGRect(x: 0, y: 290, width: 160, height: 50)
-        labelChangePhoto.center.x = view.center.x
+        changePhotoLabel.text = "Изменить фото"
+        changePhotoLabel.font = .systemFont(ofSize: 22)
+        changePhotoLabel.textColor = .systemBlue
+        changePhotoLabel.frame = CGRect(x: 0, y: 290, width: 160, height: 50)
+        changePhotoLabel.center.x = view.center.x
         
-        labelName.text = "Имя"
-        labelName.textColor = .systemBlue
-        labelName.font = .systemFont(ofSize: 16)
-        labelName.frame = CGRect(x: 20, y: 360, width: 50, height: 30)
+        nameLabel.text = "Имя"
+        nameLabel.textColor = .systemBlue
+        nameLabel.font = .systemFont(ofSize: 16)
+        nameLabel.frame = CGRect(x: 20, y: 360, width: 50, height: 30)
         
-        labelDate.text = "Дата"
-        labelDate.textColor = .systemBlue
-        labelDate.font = .systemFont(ofSize: 16)
-        labelDate.frame = CGRect(x: 20, y: 440, width: 50, height: 30)
+        dateLabel.text = "Дата"
+        dateLabel.textColor = .systemBlue
+        dateLabel.font = .systemFont(ofSize: 16)
+        dateLabel.frame = CGRect(x: 20, y: 440, width: 50, height: 30)
         
-        labelAge.text = "Возраст"
-        labelAge.textColor = .systemBlue
-        labelAge.font = .systemFont(ofSize: 16)
-        labelAge.frame = CGRect(x: 20, y: 520, width: 70, height: 30)
+        ageLabel.text = "Возраст"
+        ageLabel.textColor = .systemBlue
+        ageLabel.font = .systemFont(ofSize: 16)
+        ageLabel.frame = CGRect(x: 20, y: 520, width: 70, height: 30)
     
-        labelGender.text = "Пол"
-        labelGender.textColor = .systemBlue
-        labelGender.font = .systemFont(ofSize: 16)
-        labelGender.frame = CGRect(x: 20, y: 600, width: 70, height: 30)
+        genderLabel.text = "Пол"
+        genderLabel.textColor = .systemBlue
+        genderLabel.font = .systemFont(ofSize: 16)
+        genderLabel.frame = CGRect(x: 20, y: 600, width: 70, height: 30)
         
-        labelInstagram.text = "Instagram"
-        labelInstagram.textColor = .systemBlue
-        labelInstagram.font = .systemFont(ofSize: 16)
-        labelInstagram.frame = CGRect(x: 20, y: 680, width: 90, height: 30)
+        instagramLabel.text = "Instagram"
+        instagramLabel.textColor = .systemBlue
+        instagramLabel.font = .systemFont(ofSize: 16)
+        instagramLabel.frame = CGRect(x: 20, y: 680, width: 90, height: 30)
         
-        view.addSubview(labelChangePhoto)
-        view.addSubview(labelName)
-        view.addSubview(labelDate)
-        view.addSubview(labelAge)
-        view.addSubview(labelGender)
-        view.addSubview(labelInstagram)
+        view.addSubview(changePhotoLabel)
+        view.addSubview(nameLabel)
+        view.addSubview(dateLabel)
+        view.addSubview(ageLabel)
+        view.addSubview(genderLabel)
+        view.addSubview(instagramLabel)
     }
     func settingsTextField() {
-        nameField.frame = CGRect(x: 20, y: 390, width: 330, height: 30)
-        nameField.placeholder = "Введите имя"
-        nameField.borderStyle = .roundedRect
+        nameTextField.frame = CGRect(x: 20, y: 390, width: 330, height: 30)
+        nameTextField.placeholder = "Введите имя"
+        nameTextField.borderStyle = .roundedRect
         
-        dateField.frame = CGRect(x: 20, y: 470, width: 330, height: 30)
-        dateField.placeholder = "Введите дату"
-        dateField.borderStyle = .roundedRect
+        dateTextField.frame = CGRect(x: 20, y: 470, width: 330, height: 30)
+        dateTextField.placeholder = "Введите дату"
+        dateTextField.borderStyle = .roundedRect
         
-        ageField.frame = CGRect(x: 20, y: 550, width: 330, height: 30)
-        ageField.placeholder = "Добавить"
-        ageField.borderStyle = .roundedRect
+        ageTextField.frame = CGRect(x: 20, y: 550, width: 330, height: 30)
+        ageTextField.placeholder = "Добавить"
+        ageTextField.borderStyle = .roundedRect
         
-        genderField.frame = CGRect(x: 20, y: 630, width: 330, height: 30)
-        genderField.placeholder = "Добавить"
-        genderField.borderStyle = .roundedRect
+        genderTextField.frame = CGRect(x: 20, y: 630, width: 330, height: 30)
+        genderTextField.placeholder = "Добавить"
+        genderTextField.borderStyle = .roundedRect
         
-        instagramField.frame = CGRect(x: 20, y: 710, width: 330, height: 30)
-        instagramField.placeholder = "Добавить"
-        instagramField.borderStyle = .roundedRect
+        instagramTextField.frame = CGRect(x: 20, y: 710, width: 330, height: 30)
+        instagramTextField.placeholder = "Добавить"
+        instagramTextField.borderStyle = .roundedRect
         
-        view.addSubview(nameField)
-        view.addSubview(dateField)
-        view.addSubview(ageField)
-        view.addSubview(genderField)
-        view.addSubview(instagramField)
+        view.addSubview(nameTextField)
+        view.addSubview(dateTextField)
+        view.addSubview(ageTextField)
+        view.addSubview(genderTextField)
+        view.addSubview(instagramTextField)
     }
     func settingsThreedVc() {
         view.backgroundColor = .white
