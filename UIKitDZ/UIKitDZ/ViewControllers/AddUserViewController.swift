@@ -7,8 +7,8 @@
 
 import Foundation
 import UIKit
-/// ThreedViewController - Информация о пользователе
-class ThreedViewController: UIViewController {
+/// AddUserViewController - Информация о пользователе
+class AddUserViewController: UIViewController {
    
     let imageUser: UIImageView = {
         let imageUser = UIImageView(frame: CGRect(
@@ -220,11 +220,11 @@ class ThreedViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .save,
             target: self,
-            action: #selector(saveButton))
+            action: #selector(saveButtonAction))
         let emptyTabBar = navigationItem.rightBarButtonItem
         emptyTabBar?.tintColor = .systemBlue
     }
-    @objc private func saveButton() {
+    @objc private func saveButtonAction() {
         dismiss(animated: true)
     }
 }

@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-extension ThreedViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+/// Extension - расширение пикера для выбора пола и возраста
+extension AddUserViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

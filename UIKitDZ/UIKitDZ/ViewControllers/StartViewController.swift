@@ -6,9 +6,9 @@
 //
 
 import UIKit
-/// ViewController - Первый экран
-class ViewController: UIViewController {
-    let labelReminder = UILabel()
+/// StartViewController - Первый экран
+class StartViewController: UIViewController {
+    let reminderBirhtdayLabel = UILabel()
     let emailLabel = UILabel()
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
@@ -20,11 +20,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
+        
+    }
+    func configureViews() {
         settingsTextField()
         settingsLabels()
         settingsSwitch()
         createButton()
-        didTapButton()
     }
     func settingsTextField() {
         emailTextField.frame = CGRect(x: 50, y: 370, width: 250, height: 30)
@@ -40,12 +43,12 @@ class ViewController: UIViewController {
         
     }
     func settingsLabels() {
-        labelReminder.text = "Birthday Reminder"
-        labelReminder.font = .boldSystemFont(ofSize: 20)
-        labelReminder.frame = CGRect(x: 0, y: 150, width: 200, height: 100)
-        labelReminder.center.x = view.center.x
-        labelReminder.textColor = .systemBlue
-        view.addSubview(labelReminder)
+        reminderBirhtdayLabel.text = "Birthday Reminder"
+        reminderBirhtdayLabel.font = .boldSystemFont(ofSize: 20)
+        reminderBirhtdayLabel.frame = CGRect(x: 0, y: 150, width: 200, height: 100)
+        reminderBirhtdayLabel.center.x = view.center.x
+        reminderBirhtdayLabel.textColor = .systemBlue
+        view.addSubview(reminderBirhtdayLabel)
         
         textSignIn.text = "Sign In"
         textSignIn.font = .boldSystemFont(ofSize: 25)
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
         view.addSubview(switchFaceId)
     }
     func createButton() {
-        buttonSign.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        buttonSign.addTarget(self, action: #selector(didTapButtonAction), for: .touchUpInside)
         buttonSign.setTitle("Войти", for: .normal)
         buttonSign.backgroundColor = .systemBlue
         buttonSign.frame = CGRect(x: 0, y: 580, width: 270, height: 50)
@@ -83,8 +86,8 @@ class ViewController: UIViewController {
         buttonSign.layer.cornerRadius = 15
         view.addSubview(buttonSign)
     }
-    @objc private func didTapButton() {
-        let secondVC = SecondViewController()
+    @objc private func didTapButtonAction() {
+        let secondVC = UserViewController()
         let navigationVC = UINavigationController(rootViewController: secondVC)
         navigationVC.modalPresentationStyle = .fullScreen
         present(navigationVC, animated: true)
