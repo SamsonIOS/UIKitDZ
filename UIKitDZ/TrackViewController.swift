@@ -75,6 +75,7 @@ class TrackViewController: UIViewController {
         let minutes1 = Int(lastTime / 60)
         let seconds1 = Int(-lastTime.truncatingRemainder(dividingBy: 60))
         timeTrackFinishLabel.text = String(format: "%02d:%02d", minutes1, seconds1)
+        slider.setValue(Float(player.currentTime), animated: true)
     }
     func settingsPlayer() {
         do {
@@ -91,7 +92,6 @@ class TrackViewController: UIViewController {
     func allSliders() {
         player.volume = sliderVolume.value
         slider.minimumValue = 0.0
-        slider.setValue(Float(player.currentTime), animated: true)
     }
     // MARK: Настройки отображения при выборе определенного трека
     func setSong() {
