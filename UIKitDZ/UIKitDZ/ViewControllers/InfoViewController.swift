@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// InfoViewController - экран с информацией о пользователе
+/// InfoViewController - экран с информацией о клубе
 class InfoViewController: UIViewController {
     
     let imageForInfoVC: UIImageView = {
@@ -26,12 +26,45 @@ class InfoViewController: UIViewController {
         UIImage(named: "logopc"),
         UIImage(named: "logoprice"),
         UIImage(named: "games")]
+    let buttonToBook = UIButton()
+    let buttonContact = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageViewSetting()
         createSegment()
         buttonBack()
+        settingsButtons()
+    }
+    func settingsButtons() {
+        buttonToBook.setTitle("Забронировать", for: .normal)
+        buttonToBook.frame = CGRect(x: 0, y: 580, width: 300, height: 50)
+        buttonToBook.center.x = view.center.x
+        buttonToBook.backgroundColor = .systemPurple
+        buttonToBook.layer.cornerRadius = 15
+        buttonToBook.clipsToBounds = true
+        buttonToBook.addTarget(self,
+                               action: #selector(buttonForThreedVC),
+                               for: .touchUpInside)
+        view.addSubview(buttonToBook)
+        
+        buttonContact.setTitle("Связаться с нами", for: .normal)
+        buttonContact.frame = CGRect(x: 0, y: 680, width: 300, height: 50)
+        buttonContact.center.x = view.center.x
+        buttonContact.backgroundColor = .systemPurple
+        buttonContact.layer.cornerRadius = 15
+        buttonContact.clipsToBounds = true
+        buttonContact.addTarget(self, action: #selector(actionContactButton), for: .touchUpInside)
+        view.addSubview(buttonContact)
+        
+    }
+    @objc private func actionContactButton() {
+        let alertController = UIAlertController(title: .none, message: "+799912345678", preferredStyle: .alert)
+        let alertActionCall = UIAlertAction(title: "Позвонить", style: .default)
+        let alecrtActionCancel = UIAlertAction(title: "Отмена", style: .default)
+        alertController.addAction(alertActionCall)
+        alertController.addAction(alecrtActionCancel)
+        present(alertController, animated: true)
     }
     func imageViewSetting() {
         view.backgroundColor = .white
@@ -68,5 +101,11 @@ class InfoViewController: UIViewController {
             
             self.imageView.image = self.imageAll[segmentIndex]
         }
+    }
+    @objc private func buttonForThreedVC() {
+        let threedView = ToBookViewController()
+        let navigationThreedView = UINavigationController(rootViewController: threedView)
+        navigationThreedView.modalPresentationStyle = .fullScreen
+        present(navigationThreedView, animated: true)
     }
 }

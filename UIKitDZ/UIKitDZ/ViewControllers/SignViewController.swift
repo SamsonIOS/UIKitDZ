@@ -32,6 +32,8 @@ class SignViewController: UIViewController {
     let emailTextField = UITextField()
     let passwordtextField = UITextField()
     let buttonSignIn = UIButton()
+    let registrationButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         settingTextFieldAndLabels()
@@ -67,6 +69,14 @@ class SignViewController: UIViewController {
         buttonSignIn.clipsToBounds = true
         buttonSignIn.addTarget(self, action: #selector(tapOnButtonSign), for: .touchUpInside)
         view.addSubview(buttonSignIn)
+        
+        registrationButton.setTitle("Регистрация", for: .normal)
+        registrationButton.backgroundColor = .systemPurple
+        registrationButton.frame = CGRect(x: 0, y: 700, width: 300, height: 50)
+        registrationButton.center.x = view.center.x
+        registrationButton.layer.cornerRadius = 15
+        registrationButton.clipsToBounds = true
+        view.addSubview(registrationButton)
     }
     @objc private func tapOnButtonSign() {
         let secondView = InfoViewController()
