@@ -120,6 +120,7 @@ class ToBookViewController: UIViewController {
             message: "Забронированно!",
             preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(alertAction)
         present(alertController, animated: true)
