@@ -6,24 +6,23 @@
 //
 
 import UIKit
-/// ViewController - экран с продажей машин
-class ViewController: UIViewController {
-
-    var activity = UIActivityViewController(
+/// CarsViewController - экран с продажей машин
+class CarsViewController: UIViewController {
+    
+    @IBOutlet weak var buttonShare: UIButton!
+    
+    let activityView = UIActivityViewController(
         activityItems: ["BMW  e60, 2006 года"],
         applicationActivities: nil)
     let picker = UIPickerView()
-    let someArray = ["Поделится", "Машины", "Мотоциклы"]
-    @IBOutlet weak var buttonShare: UIButton!
+    let caseInPickerView = ["Поделится", "Машины", "Мотоциклы"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView()
+        configurePickerView()
     }
     
-    @IBAction func buttonShareAction(_ sender: UIButton) {
-        present(activity, animated: true, completion: nil)
-    }
-    func pickerView() {
+    func configurePickerView() {
         picker.dataSource = self
         picker.delegate = self
         picker.frame = CGRect(
@@ -34,5 +33,9 @@ class ViewController: UIViewController {
         picker.center.x = view.center.x
         picker.tag = 0
         view.addSubview(picker)
+    }
+    
+    @IBAction func buttonShareAction(_ sender: UIButton) {
+        present(activityView, animated: true, completion: nil)
     }
 }

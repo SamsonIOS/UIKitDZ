@@ -7,25 +7,29 @@
 
 import Foundation
 import UIKit
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+/// UIPickerViewDelegate, UIPickerViewDataSource
+extension CarsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return someArray.count
+        return caseInPickerView.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return someArray[row]
+        return caseInPickerView[row]
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch someArray[row] {
+        switch caseInPickerView[row] {
         case "Поделится":
-            present(activity, animated: true, completion: nil)
+            present(activityView, animated: true, completion: nil)
         case "Машины":
-            print(someArray[row])
+            print(caseInPickerView[row])
         case "Мотоциклы":
-            print(someArray[row])
+            print(caseInPickerView[row])
         default:
             break
         }
