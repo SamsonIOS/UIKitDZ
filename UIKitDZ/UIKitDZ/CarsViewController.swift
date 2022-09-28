@@ -8,20 +8,20 @@
 import UIKit
 /// CarsViewController - экран с продажей машин
 class CarsViewController: UIViewController {
-    
+    // MARK: IBOutlets
     @IBOutlet weak var buttonShare: UIButton!
-    
+    // MARK: Public properties
     let activityView = UIActivityViewController(
         activityItems: ["BMW  e60, 2006 года"],
         applicationActivities: nil)
     let picker = UIPickerView()
     let caseInPickerView = ["Поделится", "Машины", "Мотоциклы"]
-    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePickerView()
     }
-    
+    // MARK: Public Methods
     func configurePickerView() {
         picker.dataSource = self
         picker.delegate = self
@@ -34,7 +34,7 @@ class CarsViewController: UIViewController {
         picker.tag = 0
         view.addSubview(picker)
     }
-    
+    // MARK: IBAction 
     @IBAction func buttonShareAction(_ sender: UIButton) {
         present(activityView, animated: true, completion: nil)
     }
