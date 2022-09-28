@@ -110,7 +110,7 @@ class InfoViewController: UIViewController {
         if target == segmentControl {
             let segmentIndex = target.selectedSegmentIndex
             
-            imageView.image = self.images[segmentIndex]
+            imageView.image = images[segmentIndex]
         }
     }
     
