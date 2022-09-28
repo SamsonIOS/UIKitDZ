@@ -8,7 +8,7 @@
 import UIKit
 /// SignViewController - экран входа/регистрации
 class SignViewController: UIViewController {
-    // MARK: Constants
+    // MARK: Public Properties
     let mainVCImageView: UIImageView = {
         var mainPhoto = UIImageView(frame: CGRect(
             x: 0,
@@ -33,12 +33,12 @@ class SignViewController: UIViewController {
     let passwordTextField = UITextField()
     let buttonSignIn = UIButton()
     let registrationButton = UIButton()
-    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         settingTextFieldAndLabels()
     }
-    // MARK: Settings Text Fields and Labels
+    // MARK: Public Methods
     func settingTextFieldAndLabels() {
         mainVCImageView.frame.size.width = view.frame.size.width
         mainVCImageView.frame.size.height = view.frame.size.height
@@ -78,6 +78,7 @@ class SignViewController: UIViewController {
         registrationButton.clipsToBounds = true
         view.addSubview(registrationButton)
     }
+    // MARK: Private Methods
     @objc private func signInTapAction() {
         let secondView = InfoViewController()
         let navigationSecondView = UINavigationController(rootViewController: secondView)

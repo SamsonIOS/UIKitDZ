@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 /// ToBookViewController - экран с бронированием компьютеров
 class ToBookViewController: UIViewController {
-    // MARK: Constants
+    // MARK: Public Properties
     let logoImage: UIImageView = {
         var logo = UIImageView(frame: CGRect(
             x: 0,
@@ -37,12 +37,12 @@ class ToBookViewController: UIViewController {
                        "5 - Standart", "7 - Standart", "8 - Standart",
                        "9 - Standart", "10 - Standart", "11 - Standart",
                        "13 - VIP", "14 - VIP", "15 - VIP", "16 - VIP", "17 - VIP"]
-    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSettings()
     }
-    // MARK: Function Settings
+    // MARK: Public Methods
     func configureSettings() {
         settingView()
         settingsLabelsAndTextField()
@@ -168,7 +168,7 @@ class ToBookViewController: UIViewController {
         let localeID = Locale.preferredLanguages.first
         datePicker.locale = Locale(identifier: localeID ?? "nil")
     }
-    // MARK: @Objc private func
+    // MARK: Private Methods
     @objc private func saveButton() {
         let alertController = UIAlertController(
             title: .none,

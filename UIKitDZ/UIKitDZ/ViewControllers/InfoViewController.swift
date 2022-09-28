@@ -8,7 +8,7 @@
 import UIKit
 /// InfoViewController - экран с информацией о клубе
 class InfoViewController: UIViewController {
-    // MARK: Constants
+    // MARK: Public Properties
     let infoImageView: UIImageView = {
         var mainPhoto = UIImageView(frame: CGRect(
             x: 0,
@@ -28,12 +28,12 @@ class InfoViewController: UIViewController {
         UIImage(named: "games")]
     let bookButton = UIButton()
     let contactButton = UIButton()
-    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSettings()
     }
-    // MARK: Methods
+    // MARK: Public methods
     func configureSettings() {
         imageViewSetting()
         createSegment()
@@ -92,7 +92,7 @@ class InfoViewController: UIViewController {
                                  for: .valueChanged)
         view.addSubview(segmentControl)
     }
-    // MARK: @Objc private func
+    // MARK: Private Methods
     @objc private func actionContactButton() {
         let alertController = UIAlertController(title: .none, message: "+799912345678", preferredStyle: .alert)
         let alertActionCall = UIAlertAction(title: "Позвонить", style: .default)
