@@ -20,15 +20,15 @@ class ToBookViewController: UIViewController {
         return logo
     }()
     
-    let labelPhone = UILabel()
-    let labelName = UILabel()
-    let labelDate = UILabel()
-    let labelPlace = UILabel()
+    let phoneLabel = UILabel()
+    let nameLabel = UILabel()
+    let dateLabel = UILabel()
+    let placeLabel = UILabel()
     
-    let textFieldPhone = UITextField()
-    let textFieldName = UITextField()
-    let textFieldDate = UITextField()
-    let textFieldPlace = UITextField()
+    let phoneTextField = UITextField()
+    let nameTextField = UITextField()
+    let dateTextField = UITextField()
+    let placeTextField = UITextField()
 
     let datePicker = UIDatePicker()
     let pickerViewPlace = UIPickerView()
@@ -53,58 +53,58 @@ class ToBookViewController: UIViewController {
     }
     
     func settingsLabelsAndTextField() {
-        labelPhone.text = "Номер телефона"
-        labelPhone.textColor = .systemPurple
-        labelPhone.font = .boldSystemFont(ofSize: 17)
-        labelPhone.frame = CGRect(x: 30, y: 150, width: 150, height: 30)
-        view.addSubview(labelPhone)
+        phoneLabel.text = "Номер телефона"
+        phoneLabel.textColor = .systemPurple
+        phoneLabel.font = .boldSystemFont(ofSize: 17)
+        phoneLabel.frame = CGRect(x: 30, y: 150, width: 150, height: 30)
+        view.addSubview(phoneLabel)
         
-        textFieldPhone.placeholder = "Введите номер телефона"
-        textFieldPhone.backgroundColor = .systemGray
-        textFieldPhone.frame = CGRect(x: 30, y: 185, width: 350, height: 30)
-        textFieldPhone.layer.cornerRadius = 2
-        textFieldPhone.clipsToBounds = true
-        view.addSubview(textFieldPhone)
+        phoneTextField.placeholder = "Введите номер телефона"
+        phoneTextField.backgroundColor = .systemGray
+        phoneTextField.frame = CGRect(x: 30, y: 185, width: 350, height: 30)
+        phoneTextField.layer.cornerRadius = 2
+        phoneTextField.clipsToBounds = true
+        view.addSubview(phoneTextField)
         
-        labelName.text = "Имя"
-        labelName.textColor = .systemPurple
-        labelName.font = .boldSystemFont(ofSize: 17)
-        labelName.frame = CGRect(x: 30, y: 230, width: 100, height: 30)
-        view.addSubview(labelName)
+        nameLabel.text = "Имя"
+        nameLabel.textColor = .systemPurple
+        nameLabel.font = .boldSystemFont(ofSize: 17)
+        nameLabel.frame = CGRect(x: 30, y: 230, width: 100, height: 30)
+        view.addSubview(nameLabel)
         
-        textFieldName.placeholder = "Введите имя"
-        textFieldName.backgroundColor = .systemGray
-        textFieldName.frame = CGRect(x: 30, y: 265, width: 350, height: 30)
-        textFieldName.layer.cornerRadius = 2
-        textFieldName.clipsToBounds = true
-        view.addSubview(textFieldName)
+        nameTextField.placeholder = "Введите имя"
+        nameTextField.backgroundColor = .systemGray
+        nameTextField.frame = CGRect(x: 30, y: 265, width: 350, height: 30)
+        nameTextField.layer.cornerRadius = 2
+        nameTextField.clipsToBounds = true
+        view.addSubview(nameTextField)
         
-        labelDate.text = "Дата"
-        labelDate.textColor = .systemPurple
-        labelDate.font = .boldSystemFont(ofSize: 17)
-        labelDate.frame = CGRect(x: 30, y: 310, width: 100, height: 30)
-        view.addSubview(labelDate)
+        dateLabel.text = "Дата"
+        dateLabel.textColor = .systemPurple
+        dateLabel.font = .boldSystemFont(ofSize: 17)
+        dateLabel.frame = CGRect(x: 30, y: 310, width: 100, height: 30)
+        view.addSubview(dateLabel)
         
-        textFieldDate.placeholder = "Введите дату"
-        textFieldDate.backgroundColor = .systemGray
-        textFieldDate.frame = CGRect(x: 30, y: 345, width: 350, height: 30)
-        textFieldDate.layer.cornerRadius = 2
-        textFieldDate.clipsToBounds = true
-        view.addSubview(textFieldDate)
+        dateTextField.placeholder = "Введите дату"
+        dateTextField.backgroundColor = .systemGray
+        dateTextField.frame = CGRect(x: 30, y: 345, width: 350, height: 30)
+        dateTextField.layer.cornerRadius = 2
+        dateTextField.clipsToBounds = true
+        view.addSubview(dateTextField)
         
-        labelPlace.text = "Бронируемое место"
-        labelPlace.textColor = .systemPurple
-        labelPlace.font = .boldSystemFont(ofSize: 17)
-        labelPlace.frame = CGRect(x: 30, y: 390, width: 170, height: 30)
-        view.addSubview(labelPlace)
+        placeLabel.text = "Бронируемое место"
+        placeLabel.textColor = .systemPurple
+        placeLabel.font = .boldSystemFont(ofSize: 17)
+        placeLabel.frame = CGRect(x: 30, y: 390, width: 170, height: 30)
+        view.addSubview(placeLabel)
         
-        textFieldPlace.placeholder = "Выберите место"
-        textFieldPlace.backgroundColor = .systemGray
-        textFieldPlace.font = .boldSystemFont(ofSize: 17)
-        textFieldPlace.frame = CGRect(x: 30, y: 425, width: 350, height: 30)
-        textFieldName.layer.cornerRadius = 2
-        textFieldPlace.clipsToBounds = true
-        view.addSubview(textFieldPlace)
+        placeTextField.placeholder = "Выберите место"
+        placeTextField.backgroundColor = .systemGray
+        placeTextField.font = .boldSystemFont(ofSize: 17)
+        placeTextField.frame = CGRect(x: 30, y: 425, width: 350, height: 30)
+        placeTextField.layer.cornerRadius = 2
+        placeTextField.clipsToBounds = true
+        view.addSubview(placeTextField)
     }
     
     func settingView() {
@@ -123,7 +123,7 @@ class ToBookViewController: UIViewController {
     }
     
     func buttonCancel() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .cancel,
             target: self,
             action: #selector(backToSecondViewController))
@@ -143,8 +143,8 @@ class ToBookViewController: UIViewController {
             target: nil,
             action: #selector(donePickerAction))
         toolBar.setItems([doneButtonPlace], animated: true)
-        textFieldPlace.inputAccessoryView = toolBar
-        textFieldPlace.inputView = pickerViewPlace
+        placeTextField.inputAccessoryView = toolBar
+        placeTextField.inputView = pickerViewPlace
         
     }
     
@@ -159,10 +159,10 @@ class ToBookViewController: UIViewController {
             action: #selector(donePressedAction))
         toolBar.setItems([doneButton], animated: true)
         /// assign toolbar
-        textFieldDate.inputAccessoryView = toolBar
+        dateTextField.inputAccessoryView = toolBar
         
         /// assign date picker to the text field
-        textFieldDate.inputView = datePicker
+        dateTextField.inputView = datePicker
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = .wheels
         let localeID = Locale.preferredLanguages.first
@@ -195,7 +195,7 @@ class ToBookViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         
-        textFieldDate.text = dateFormatter.string(from: datePicker.date)
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
 }

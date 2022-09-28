@@ -9,7 +9,7 @@ import UIKit
 /// SignViewController - экран входа/регистрации
 class SignViewController: UIViewController {
     // MARK: Constants
-    let imageMainOnVC: UIImageView = {
+    let mainVCImageView: UIImageView = {
         var mainPhoto = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
@@ -30,7 +30,7 @@ class SignViewController: UIViewController {
     }()
     
     let emailTextField = UITextField()
-    let passwordtextField = UITextField()
+    let passwordTextField = UITextField()
     let buttonSignIn = UIButton()
     let registrationButton = UIButton()
     
@@ -40,9 +40,9 @@ class SignViewController: UIViewController {
     }
     // MARK: Settings Text Fields and Labels
     func settingTextFieldAndLabels() {
-        imageMainOnVC.frame.size.width = view.frame.size.width
-        imageMainOnVC.frame.size.height = view.frame.size.height
-        view.addSubview(imageMainOnVC)
+        mainVCImageView.frame.size.width = view.frame.size.width
+        mainVCImageView.frame.size.height = view.frame.size.height
+        view.addSubview(mainVCImageView)
         
         imageLogoClub.backgroundColor = .none
         imageLogoClub.center.x = view.center.x
@@ -54,12 +54,12 @@ class SignViewController: UIViewController {
         emailTextField.borderStyle = .roundedRect
         view.addSubview(emailTextField)
         
-        passwordtextField.placeholder = "Пароль"
-        passwordtextField.backgroundColor = .systemGray
-        passwordtextField.frame = CGRect(x: 30, y: 520, width: 350, height: 50)
-        passwordtextField.borderStyle = .roundedRect
-        passwordtextField.isSecureTextEntry = true
-        view.addSubview(passwordtextField)
+        passwordTextField.placeholder = "Пароль"
+        passwordTextField.backgroundColor = .systemGray
+        passwordTextField.frame = CGRect(x: 30, y: 520, width: 350, height: 50)
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.isSecureTextEntry = true
+        view.addSubview(passwordTextField)
         
         buttonSignIn.setTitle("Войти", for: .normal)
         buttonSignIn.backgroundColor = .systemPurple
@@ -67,7 +67,7 @@ class SignViewController: UIViewController {
         buttonSignIn.center.x = view.center.x
         buttonSignIn.layer.cornerRadius = 15
         buttonSignIn.clipsToBounds = true
-        buttonSignIn.addTarget(self, action: #selector(tapOnButtonSign), for: .touchUpInside)
+        buttonSignIn.addTarget(self, action: #selector(signInTapAction), for: .touchUpInside)
         view.addSubview(buttonSignIn)
         
         registrationButton.setTitle("Регистрация", for: .normal)
@@ -78,7 +78,7 @@ class SignViewController: UIViewController {
         registrationButton.clipsToBounds = true
         view.addSubview(registrationButton)
     }
-    @objc private func tapOnButtonSign() {
+    @objc private func signInTapAction() {
         let secondView = InfoViewController()
         let navigationSecondView = UINavigationController(rootViewController: secondView)
         navigationSecondView.modalPresentationStyle = .fullScreen

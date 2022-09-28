@@ -22,6 +22,6 @@ extension ToBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textFieldPlace.text = placeInClub[row]
+        placeTextField.text = placeInClub[row]
     }
 }
