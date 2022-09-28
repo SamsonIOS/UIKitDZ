@@ -18,16 +18,15 @@ class InfoViewController: UIViewController {
         mainPhoto.image = UIImage(named: "fonvc2")
         return mainPhoto
     }()
-    
-    var segmentControl = UISegmentedControl()
-    var imageView = UIImageView()
-    var menu = ["Конфиги ПК", "Цены", "Игры"]
     let images = [
         UIImage(named: "logopc"),
         UIImage(named: "logoprice"),
         UIImage(named: "games")]
     let bookButton = UIButton()
     let contactButton = UIButton()
+    var segmentControl = UISegmentedControl()
+    var imageView = UIImageView()
+    var menu = ["Конфиги ПК", "Цены", "Игры"]
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
