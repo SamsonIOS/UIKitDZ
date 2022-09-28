@@ -6,10 +6,12 @@
 //
 
 import UIKit
-/// Начальний VC
+/// ViewController - экран с продажей машин
 class ViewController: UIViewController {
 
-    var activity = UIActivityViewController(activityItems: ["VK"], applicationActivities: nil)
+    var activity = UIActivityViewController(
+        activityItems: ["BMW  e60, 2006 года"],
+        applicationActivities: nil)
     let picker = UIPickerView()
     let someArray = ["Поделится", "Машины", "Мотоциклы"]
     @IBOutlet weak var buttonShare: UIButton!
@@ -26,7 +28,7 @@ class ViewController: UIViewController {
         picker.delegate = self
         picker.frame = CGRect(
             x: 0,
-            y: 50,
+            y: 250,
             width: 450,
             height: 200)
         picker.center.x = view.center.x
