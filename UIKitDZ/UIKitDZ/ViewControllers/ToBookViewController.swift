@@ -158,15 +158,15 @@ class ToBookViewController: UIViewController {
         let doneButtonPlace = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: nil,
-            action: #selector(donePicker))
+            action: #selector(donePickerAction))
         toolBar.setItems([doneButtonPlace], animated: true)
         textFieldPlace.inputAccessoryView = toolBar
         textFieldPlace.inputView = pickerViewPlace
         
     }
-    @objc func donePicker() {
+    @objc func donePickerAction() {
         
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     // MARK: Picker for date 
     func createDatePicker () {
@@ -177,7 +177,7 @@ class ToBookViewController: UIViewController {
         let doneButton = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: nil,
-            action: #selector(donePressed))
+            action: #selector(donePressedAction))
         toolBar.setItems([doneButton], animated: true)
         /// assign toolbar
         textFieldDate.inputAccessoryView = toolBar
@@ -189,13 +189,13 @@ class ToBookViewController: UIViewController {
         let localeID = Locale.preferredLanguages.first
         datePicker.locale = Locale(identifier: localeID ?? "nil")
     }
-    @objc func donePressed() {
+    @objc func donePressedAction() {
         /// formater date
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         
-        self.textFieldDate.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
+        textFieldDate.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
 }
