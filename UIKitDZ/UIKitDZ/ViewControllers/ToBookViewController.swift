@@ -8,27 +8,28 @@ import Foundation
 import UIKit
 /// ToBookViewController - экран с бронированием компьютеров
 class ToBookViewController: UIViewController {
-    
+    // MARK: Logo Image on ToBookViewController
     let logoImage: UIImageView = {
         var logo = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
             width: 650,
             height: 900))
-        logo.image = UIImage(named: "logovc33")
+        logo.image = UIImage(named: "logovc3")
         logo.contentMode = .scaleAspectFit
         return logo
     }()
+    // MARK: Labels
     let labelPhone = UILabel()
     let labelName = UILabel()
     let labelDate = UILabel()
     let labelPlace = UILabel()
-    
+    // MARK: Text Fields
     let textFieldPhone = UITextField()
     let textFieldName = UITextField()
     let textFieldDate = UITextField()
     let textFieldPlace = UITextField()
-    
+    // MARK: Pickers
     let datePicker = UIDatePicker()
     let pickerViewPlace = UIPickerView()
     let placeInClub = ["1 - Standart", "2 - Standart",
@@ -39,6 +40,10 @@ class ToBookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSettings()
+    }
+    // MARK: All methods
+    func configureSettings() {
         settingView()
         settingsLabelsAndTextField()
         buttonCancel()
@@ -46,6 +51,7 @@ class ToBookViewController: UIViewController {
         createDatePicker()
         pickerPlace()
     }
+    // MARK: Settings labels and Text Fields on ToBookViewController
     func settingsLabelsAndTextField() {
         labelPhone.text = "Номер телефона"
         labelPhone.textColor = .systemPurple
@@ -101,11 +107,13 @@ class ToBookViewController: UIViewController {
         view.addSubview(textFieldPlace)
         
     }
+    // MARK: Settings view on ToBookViewController
     func settingView() {
         logoImage.center.x = view.center.x
         logoImage.center.y = view.center.y
         view.addSubview(logoImage)
     }
+    // MARK: Button Save
     func buttonEmpty() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .save,
@@ -114,6 +122,7 @@ class ToBookViewController: UIViewController {
         let emptyTabBar = navigationItem.rightBarButtonItem
         emptyTabBar?.tintColor = .systemPurple
     }
+    // MARK: Alert for button "Save"
     @objc private func saveButton() {
         let alertController = UIAlertController(
             title: .none,
@@ -126,6 +135,7 @@ class ToBookViewController: UIViewController {
         present(alertController, animated: true)
         
     }
+    // MARK: Button Cancel
     func buttonCancel() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .cancel,
@@ -137,6 +147,7 @@ class ToBookViewController: UIViewController {
     @objc private func backToSecondViewController() {
         dismiss(animated: true, completion: nil)
     }
+    // MARK: picker for place on pc
     func pickerPlace() {
         pickerViewPlace.dataSource = self
         pickerViewPlace.delegate = self
@@ -157,6 +168,7 @@ class ToBookViewController: UIViewController {
         
         self.view.endEditing(true)
     }
+    // MARK: Picker for date 
     func createDatePicker () {
         /// toolbar
         let toolBar = UIToolbar()

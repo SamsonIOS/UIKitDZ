@@ -8,7 +8,7 @@
 import UIKit
 /// SignViewController - экран входа/регистрации
 class SignViewController: UIViewController {
-    
+    // MARK: Photo on full view
     let imageMainOnVC: UIImageView = {
         var mainPhoto = UIImageView(frame: CGRect(
             x: 0,
@@ -18,7 +18,7 @@ class SignViewController: UIViewController {
         mainPhoto.image = UIImage(named: "photoMain")
         return mainPhoto
     }()
-    
+    // MARK: PhotoLogo Club
     let imageLogoClub: UIImageView = {
         var logo = UIImageView(frame: CGRect(
             x: 0,
@@ -39,6 +39,7 @@ class SignViewController: UIViewController {
         settingTextFieldAndLabels()
         
     }
+    // MARK: Settings Text Fields and Labels
     func settingTextFieldAndLabels() {
         imageMainOnVC.frame.size.width = view.frame.size.width
         imageMainOnVC.frame.size.height = view.frame.size.height
@@ -78,6 +79,7 @@ class SignViewController: UIViewController {
         registrationButton.clipsToBounds = true
         view.addSubview(registrationButton)
     }
+    // MARK: change view controller
     @objc private func tapOnButtonSign() {
         let secondView = InfoViewController()
         let navigationSecondView = UINavigationController(rootViewController: secondView)

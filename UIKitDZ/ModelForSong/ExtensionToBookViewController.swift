@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+/// ExtensionToBookViewController - расширяем наш класс для использование пикеров
 extension ToBookViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

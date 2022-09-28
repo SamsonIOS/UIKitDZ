@@ -48,7 +48,7 @@
 		3398D35528DB7ECF00DBCFF7 = {
 			isa = PBXGroup;
 			children = (
-				33998AF528E2EEC500ED3184 /* ExtensionToBookViewController.swift */,
+				3399F9B828E42302002913A0 /* ModelForSong */,
 				3398D36028DB7ECF00DBCFF7 /* UIKitDZ */,
 				3398D35F28DB7ECF00DBCFF7 /* Products */,
 			);
@@ -75,6 +75,14 @@
 				3398D36F28DB7ED100DBCFF7 /* Info.plist */,
 			);
 			path = UIKitDZ;
+			sourceTree = "<group>";
+		};
+		3399F9B828E42302002913A0 /* ModelForSong */ = {
+			isa = PBXGroup;
+			children = (
+				33998AF528E2EEC500ED3184 /* ExtensionToBookViewController.swift */,
+			);
+			path = ModelForSong;
 			sourceTree = "<group>";
 		};
 		33A29B9628E1F5840045E0E9 /* ViewControllers */ = {

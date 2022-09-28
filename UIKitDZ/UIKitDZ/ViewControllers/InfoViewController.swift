@@ -8,7 +8,7 @@
 import UIKit
 /// InfoViewController - экран с информацией о клубе
 class InfoViewController: UIViewController {
-    
+    // MARK: Photo on full view
     let imageForInfoVC: UIImageView = {
         var mainPhoto = UIImageView(frame: CGRect(
             x: 0,
@@ -31,11 +31,16 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSettings()
+    }
+    // MARK: Method with all settings
+    func configureSettings() {
         imageViewSetting()
         createSegment()
         buttonBack()
         settingsButtons()
     }
+    // MARK: Settings of button
     func settingsButtons() {
         buttonToBook.setTitle("Забронировать", for: .normal)
         buttonToBook.frame = CGRect(x: 0, y: 580, width: 300, height: 50)
@@ -58,6 +63,7 @@ class InfoViewController: UIViewController {
         view.addSubview(buttonContact)
         
     }
+    // MARK: Action button for buttonContact
     @objc private func actionContactButton() {
         let alertController = UIAlertController(title: .none, message: "+799912345678", preferredStyle: .alert)
         let alertActionCall = UIAlertAction(title: "Позвонить", style: .default)
@@ -66,6 +72,7 @@ class InfoViewController: UIViewController {
         alertController.addAction(alecrtActionCancel)
         present(alertController, animated: true)
     }
+    // MARK: Settings InfoViewController
     func imageViewSetting() {
         view.backgroundColor = .white
         view.addSubview(imageForInfoVC)
@@ -74,6 +81,7 @@ class InfoViewController: UIViewController {
         imageView.image = imageAll[0]
         view.addSubview(imageView)
     }
+    // MARK: Create ButtonBack
     func buttonBack() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "❮ Назад",
@@ -86,6 +94,7 @@ class InfoViewController: UIViewController {
     @objc private func backButton() {
         dismiss(animated: true, completion: nil)
     }
+    // MARK: Create segment control
     func createSegment() {
         segmentControl = UISegmentedControl(items: menu)
         segmentControl.frame = CGRect(x: 0, y: 100, width: 300, height: 35)
@@ -102,6 +111,7 @@ class InfoViewController: UIViewController {
             self.imageView.image = self.imageAll[segmentIndex]
         }
     }
+    // MARK: Go to ToBookViewController
     @objc private func buttonForThreedVC() {
         let threedView = ToBookViewController()
         let navigationThreedView = UINavigationController(rootViewController: threedView)
