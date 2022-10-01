@@ -7,27 +7,28 @@
 
 import UIKit
 /// Протокол  для расширения
-protocol PopToRootVC: AnyObject {
+protocol PopToRootDelegate: AnyObject {
     func goToBack()
 }
 /// Экран с ингредиентами
 final class IngridientsViewController: UIViewController {
     
     // MARK: Public properties
-     let pizzaImage: UIImageView = {
+    let pizzaImage: UIImageView = {
         var image = UIImageView(frame: CGRect(
             x: 0, y: 120, width: 300, height: 300))
         return image
     }()
     
-     let pizzaNamaLabel: UILabel = {
+    let pizzaNamaLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 0, y: 40, width: 200, height: 50))
          label.font = .boldSystemFont(ofSize: 30)
         return label
     }()
     
-    let chesseLabel: UILabel = {
+    // MARK: Private Properties
+    private let chesseLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 40, y: 470, width: 250, height: 30))
         label.font = .boldSystemFont(ofSize: 19)
@@ -36,14 +37,14 @@ final class IngridientsViewController: UIViewController {
         return label
     }()
     
-    let chesseSwitch: UISwitch = {
+    private let chesseSwitch: UISwitch = {
         var setSwitch = UISwitch(frame: CGRect(
             x: 350, y: 470, width: 50, height: 40))
         setSwitch.isOn = false
         return setSwitch
     }()
     
-    let hamLabel: UILabel = {
+    private let hamLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 40, y: 530, width: 250, height: 30))
         label.font = .boldSystemFont(ofSize: 19)
@@ -52,14 +53,14 @@ final class IngridientsViewController: UIViewController {
         return label
     }()
     
-    let humSwitch: UISwitch = {
+    private let humSwitch: UISwitch = {
         var setSwitch = UISwitch(frame: CGRect(
             x: 350, y: 530, width: 50, height: 40))
         setSwitch.isOn = true
         return setSwitch
     }()
     
-    let mushroomsLabel: UILabel = {
+    private let mushroomsLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 40, y: 590, width: 250, height: 30))
         label.font = .boldSystemFont(ofSize: 19)
@@ -68,14 +69,14 @@ final class IngridientsViewController: UIViewController {
         return label
     }()
     
-    let mushroomsSwitch: UISwitch = {
+    private let mushroomsSwitch: UISwitch = {
         var setSwitch = UISwitch(frame: CGRect(
             x: 350, y: 590, width: 50, height: 40))
         setSwitch.isOn = false
         return setSwitch
     }()
     
-    let maslinsLabel: UILabel = {
+    private let maslinsLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 40, y: 650, width: 250, height: 30))
         label.font = .boldSystemFont(ofSize: 19)
@@ -84,13 +85,12 @@ final class IngridientsViewController: UIViewController {
         return label
     }()
     
-    let maslinsSwitch: UISwitch = {
+    private let maslinsSwitch: UISwitch = {
         var setSwitch = UISwitch(frame: CGRect(
             x: 350, y: 650, width: 50, height: 40))
         return setSwitch
     }()
     
-    // MARK: Private Properties
     private lazy var orderButton: UIButton = {
         var button = UIButton(frame: CGRect(
             x: 0, y: 700, width: 270, height: 50))
@@ -127,7 +127,7 @@ final class IngridientsViewController: UIViewController {
         view.addSubview(maslinsSwitch)
     }
     
-    // MARK: @Objc action
+    // MARK: @Objc private Action
     @objc private func orderButtonAction() {
         let payViewController = PayViewController()
         payViewController.delegate = self
@@ -157,7 +157,7 @@ final class IngridientsViewController: UIViewController {
 }
 
 /// Расширяем наш контролер с ингредиентами
-extension  IngridientsViewController: PopToRootVC {
+extension  IngridientsViewController: PopToRootDelegate {
     func goToBack() {
         if let viewController = self.presentingViewController as? UINavigationController {
             view.isHidden = true

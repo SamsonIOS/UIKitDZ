@@ -90,7 +90,7 @@ final class SignInViewController: UIViewController {
         
     }
 
-    // MARK: @Objc Action
+    // MARK: @Objc private Action
     @objc private func tapSignInButton() {
         let foodViewController = FoodViewController()
         let navVC = UINavigationController(rootViewController: foodViewController)

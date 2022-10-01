@@ -87,7 +87,7 @@ final class PizzaViewController: UIViewController {
         view.addSubview(addPeperoniIngridientsButton)
     }
     
-    // MARK: @Objc Action
+    // MARK: @Objc private Action
     @objc private func addIngridientsButtonAction(_ sender: UIButton) {
         let ingridientsVC = IngridientsViewController()
         navigationController?.modalPresentationStyle = .fullScreen

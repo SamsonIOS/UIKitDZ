@@ -89,7 +89,7 @@ final class FoodViewController: UIViewController {
         view.addSubview(contactButton)
     }
     
-    // MARK: @Objc Action
+    // MARK: @Objc private Action
     @objc private func pizzaButtonAction() {
         let pizzaVC = PizzaViewController()
         navigationController?.pushViewController(pizzaVC, animated: true)

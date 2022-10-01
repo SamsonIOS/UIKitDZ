@@ -10,7 +10,7 @@ import UIKit
 final class PayViewController: UIViewController {
     
     // MARK: Properties
-     weak var delegate: PopToRootVC?
+     weak var delegate: PopToRootDelegate?
     
      let pizzaNameLabel: UILabel = {
         var label = UILabel(frame: CGRect(
@@ -36,7 +36,8 @@ final class PayViewController: UIViewController {
         return imageView
     }()
     
-    let yourOrderLabel: UILabel = {
+    // MARK: Private Properties
+    private let yourOrderLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 20, y: 100, width: 200, height: 70))
         label.font = .boldSystemFont(ofSize: 30)
@@ -45,7 +46,7 @@ final class PayViewController: UIViewController {
         return label
     }()
     
-    let cardPayLabel: UILabel = {
+    private let cardPayLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 30, y: 650, width: 250, height: 50))
         label.text = "Оплата картой"
@@ -54,7 +55,7 @@ final class PayViewController: UIViewController {
         return label
     }()
     
-    let cashPayLabel: UILabel = {
+    private let cashPayLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 30, y: 720, width: 250, height: 50))
         label.text = "Оплата наличкой"
@@ -63,14 +64,13 @@ final class PayViewController: UIViewController {
         return label
     }()
     
-    let payImage: UIImageView = {
+    private let payImage: UIImageView = {
         var imageView = UIImageView(frame: CGRect(
             x: 0, y: 10, width: 70, height: 70))
         imageView.image = UIImage(named: "payImage")
         return imageView
     }()
     
-    // MARK: Private Properties
     private lazy var cardSwitch: UISwitch = {
         let cardSwitch = UISwitch(frame: CGRect(
             x: 340, y: 660, width: 50, height: 50))
@@ -123,7 +123,7 @@ final class PayViewController: UIViewController {
         view.addSubview(payButton)
     }
     
-    // MARK: @Objc action
+    // MARK: @Objc private Action
     @objc private func payButtonAction() {
         if cardSwitch.isOn || cashSwitch.isOn {
             let alertController = UIAlertController(
