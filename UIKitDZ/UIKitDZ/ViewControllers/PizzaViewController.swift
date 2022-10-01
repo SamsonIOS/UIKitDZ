@@ -8,6 +8,7 @@
 import UIKit
 /// Экран со списком пицц
 final class PizzaViewController: UIViewController {
+    
     // MARK: Private Properties
     private let pizzaChickenImage: UIImageView = {
         let imageView = UIImageView()
@@ -72,6 +73,7 @@ final class PizzaViewController: UIViewController {
         super.viewDidLoad()
         addSubviewElements()
     }
+    
     // MARK: Public Methods
     func addSubviewElements() {
         navigationController?.navigationBar.tintColor = UIColor.black
@@ -84,6 +86,7 @@ final class PizzaViewController: UIViewController {
         view.addSubview(addChickenIngridientsButton)
         view.addSubview(addPeperoniIngridientsButton)
     }
+    
     // MARK: @Objc Action
     @objc private func addIngridientsButtonAction(_ sender: UIButton) {
         let ingridientsVC = IngridientsViewController()

@@ -8,6 +8,7 @@
 import UIKit
 /// Экран с входом в личный кабинет
 final class SignInViewController: UIViewController {
+    
     // MARK: Properties
     let logoFood: UIImageView = {
         var logo = UIImageView(frame: CGRect(
@@ -25,25 +26,41 @@ final class SignInViewController: UIViewController {
     let passwordTextField = UITextField()
     let signInButton = UIButton()
     let registrationButton = UIButton()
+    
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         settingViewController()
-        setElementsOnView()
     }
     // MARK: Public Methods
-    func setElementsOnView() {
-        emailLabel.text = "Email"
-        emailLabel.frame = CGRect(x: 30, y: 350, width: 50, height: 50)
-        emailLabel.textColor = .systemOrange
-        emailLabel.font = .boldSystemFont(ofSize: 17)
-        view.addSubview(emailLabel)
-        
+    func settingViewController() {
+        logoFood.center.x = view.center.x
+        view.addSubview(logoFood)
+        setTextField()
+        setLabels()
+        setButtons()
+    }
+    
+    func setTextField() {
         emailTextField.placeholder = "Введите email"
         emailTextField.keyboardType = .numberPad
         emailTextField.frame = CGRect(x: 30, y: 390, width: 350, height: 35)
         emailTextField.borderStyle = .roundedRect
         view.addSubview(emailTextField)
+        
+        passwordTextField.placeholder = "Введите пароль"
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.frame = CGRect(x: 30, y: 480, width: 350, height: 35)
+        passwordTextField.borderStyle = .roundedRect
+        view.addSubview(passwordTextField)
+    }
+    
+    func setLabels() {
+        emailLabel.text = "Email"
+        emailLabel.frame = CGRect(x: 30, y: 350, width: 50, height: 50)
+        emailLabel.textColor = .systemOrange
+        emailLabel.font = .boldSystemFont(ofSize: 17)
+        view.addSubview(emailLabel)
         
         passwordLabel.text = "Password"
         passwordLabel.frame = CGRect(x: 30, y: 440, width: 350, height: 50)
@@ -51,12 +68,9 @@ final class SignInViewController: UIViewController {
         passwordLabel.font = .boldSystemFont(ofSize: 17)
         view.addSubview(passwordLabel)
         
-        passwordTextField.placeholder = "Введите пароль"
-        passwordTextField.isSecureTextEntry = true
-        passwordTextField.frame = CGRect(x: 30, y: 480, width: 350, height: 35)
-        passwordTextField.borderStyle = .roundedRect
-        view.addSubview(passwordTextField)
-        
+    }
+    
+    func setButtons() {
         signInButton.setTitle("Войти", for: .normal)
         signInButton.backgroundColor = .systemOrange
         signInButton.frame = CGRect(x: 0, y: 570, width: 280, height: 50)
@@ -75,11 +89,7 @@ final class SignInViewController: UIViewController {
         view.addSubview(registrationButton)
         
     }
-    
-    func settingViewController() {
-        logoFood.center.x = view.center.x
-        view.addSubview(logoFood)
-    }
+
     // MARK: @Objc Action
     @objc private func tapSignInButton() {
         let foodViewController = FoodViewController()

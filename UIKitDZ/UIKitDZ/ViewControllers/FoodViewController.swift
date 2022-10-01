@@ -8,7 +8,8 @@
 import UIKit
 /// Экран с выбором еды
 final class FoodViewController: UIViewController {
-    // MARK: Properties
+    
+    // MARK: Private Properties
     private lazy var pizzaButton: UIButton = {
         var button = UIButton()
         button.setTitle("Пицца", for: .normal)
@@ -36,6 +37,21 @@ final class FoodViewController: UIViewController {
         return sushiButton
     }()
     
+    private lazy var contactButton: UIButton = {
+        var button = UIButton(frame: CGRect(
+            x: 0,
+            y: 500,
+            width: 150,
+            height: 70))
+        button.backgroundColor = .systemBlue
+        button.setTitle("Позвонить нам", for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.addTarget(self, action: #selector(contactButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    // MARK: Public Properties
     let pizzaPhoto: UIImageView = {
         var pizzaLogo = UIImageView(frame: CGRect(
             x: 10,
@@ -56,24 +72,12 @@ final class FoodViewController: UIViewController {
         return sushiLogo
     }()
     
-    private lazy var contactButton: UIButton = {
-        var button = UIButton(frame: CGRect(
-            x: 0,
-            y: 500,
-            width: 150,
-            height: 70))
-        button.backgroundColor = .systemBlue
-        button.setTitle("Позвонить нам", for: .normal)
-        button.layer.cornerRadius = 10
-        button.clipsToBounds = true
-        button.addTarget(self, action: #selector(contactButtonAction), for: .touchUpInside)
-        return button
-    }()
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviewElements()
     }
+    
     // MARK: Public Methods
     func addSubviewElements() {
         title = "Food"
@@ -84,11 +88,13 @@ final class FoodViewController: UIViewController {
         contactButton.center.x = view.center.x
         view.addSubview(contactButton)
     }
+    
     // MARK: @Objc Action
     @objc private func pizzaButtonAction() {
         let pizzaVC = PizzaViewController()
         navigationController?.pushViewController(pizzaVC, animated: true)
     }
+    
     @objc private func contactButtonAction() {
         let alertController = UIAlertController(title: "Позвонить нам", message: "+79992341362", preferredStyle: .alert)
         let alerControllerAction = UIAlertAction(title: "OK", style: .cancel)

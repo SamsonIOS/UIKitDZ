@@ -12,6 +12,7 @@ protocol PopToRootVC: AnyObject {
 }
 /// Экран с ингредиентами
 final class IngridientsViewController: UIViewController {
+    
     // MARK: Public properties
      let pizzaImage: UIImageView = {
         var image = UIImageView(frame: CGRect(
@@ -89,6 +90,7 @@ final class IngridientsViewController: UIViewController {
         return setSwitch
     }()
     
+    // MARK: Private Properties
     private lazy var orderButton: UIButton = {
         var button = UIButton(frame: CGRect(
             x: 0, y: 700, width: 270, height: 50))
@@ -105,6 +107,7 @@ final class IngridientsViewController: UIViewController {
         super.viewDidLoad()
         addSubviewElements()
     }
+    
     // MARK: Public Methods
     func addSubviewElements() {
         view.backgroundColor = .white
@@ -123,6 +126,7 @@ final class IngridientsViewController: UIViewController {
         view.addSubview(mushroomsSwitch)
         view.addSubview(maslinsSwitch)
     }
+    
     // MARK: @Objc action
     @objc private func orderButtonAction() {
         let payViewController = PayViewController()

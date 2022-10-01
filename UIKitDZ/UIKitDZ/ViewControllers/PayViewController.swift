@@ -8,7 +8,10 @@
 import UIKit
 /// Экран с оплатой
 final class PayViewController: UIViewController {
+    
     // MARK: Properties
+     weak var delegate: PopToRootVC?
+    
      let pizzaNameLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 20, y: 180, width: 250, height: 50))
@@ -51,14 +54,6 @@ final class PayViewController: UIViewController {
         return label
     }()
     
-    private lazy var cardSwitch: UISwitch = {
-        let cardSwitch = UISwitch(frame: CGRect(
-            x: 340, y: 660, width: 50, height: 50))
-        cardSwitch.tag = 0
-        cardSwitch.addTarget(self, action: #selector(paySwitchAction(sender:)), for: .touchUpInside)
-        return cardSwitch
-    }()
-    
     let cashPayLabel: UILabel = {
         var label = UILabel(frame: CGRect(
             x: 30, y: 720, width: 250, height: 50))
@@ -66,6 +61,22 @@ final class PayViewController: UIViewController {
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 30)
         return label
+    }()
+    
+    let payImage: UIImageView = {
+        var imageView = UIImageView(frame: CGRect(
+            x: 0, y: 10, width: 70, height: 70))
+        imageView.image = UIImage(named: "payImage")
+        return imageView
+    }()
+    
+    // MARK: Private Properties
+    private lazy var cardSwitch: UISwitch = {
+        let cardSwitch = UISwitch(frame: CGRect(
+            x: 340, y: 660, width: 50, height: 50))
+        cardSwitch.tag = 0
+        cardSwitch.addTarget(self, action: #selector(paySwitchAction(sender:)), for: .touchUpInside)
+        return cardSwitch
     }()
     
     private lazy var cashSwitch: UISwitch = {
@@ -88,14 +99,6 @@ final class PayViewController: UIViewController {
         return button
     }()
     
-    let payImage: UIImageView = {
-        var imageView = UIImageView(frame: CGRect(
-            x: 0, y: 10, width: 70, height: 70))
-        imageView.image = UIImage(named: "payImage")
-        return imageView
-    }()
-    
-    weak var delegate: PopToRootVC?
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +122,7 @@ final class PayViewController: UIViewController {
         view.addSubview(cashSwitch)
         view.addSubview(payButton)
     }
+    
     // MARK: @Objc action
     @objc private func payButtonAction() {
         if cardSwitch.isOn || cashSwitch.isOn {
@@ -142,6 +146,7 @@ final class PayViewController: UIViewController {
             present(alertController2, animated: true)
         }
     }
+    
     @objc private func paySwitchAction(sender: UISwitch) {
         switch sender.tag {
         case 0:
