@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		339150B028E4BBB100D9DB97 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339150AF28E4BBB100D9DB97 /* FoodViewController.swift */; };
 		3398D36228DB7ECF00DBCFF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */; };
 		3398D36428DB7ECF00DBCFF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */; };
-		3398D36628DB7ECF00DBCFF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36528DB7ECF00DBCFF7 /* ViewController.swift */; };
+		3398D36628DB7ECF00DBCFF7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3398D36528DB7ECF00DBCFF7 /* SignInViewController.swift */; };
 		3398D36928DB7ECF00DBCFF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36728DB7ECF00DBCFF7 /* Main.storyboard */; };
 		3398D36B28DB7ED100DBCFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */; };
 		3398D36E28DB7ED100DBCFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3398D36C28DB7ED100DBCFF7 /* LaunchScreen.storyboard */; };
+		33A102CA28E5CB8700D4DBED /* PizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A102C928E5CB8700D4DBED /* PizzaViewController.swift */; };
+		33A102CC28E5E70500D4DBED /* IngridientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A102CB28E5E70500D4DBED /* IngridientsViewController.swift */; };
+		33A102CE28E5E71400D4DBED /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A102CD28E5E71400D4DBED /* PayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		339150AF28E4BBB100D9DB97 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		3398D35E28DB7ECF00DBCFF7 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3398D36528DB7ECF00DBCFF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3398D36528DB7ECF00DBCFF7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3398D36828DB7ECF00DBCFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3398D36D28DB7ED100DBCFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3398D36F28DB7ED100DBCFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33A102C928E5CB8700D4DBED /* PizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewController.swift; sourceTree = "<group>"; };
+		33A102CB28E5E70500D4DBED /* IngridientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsViewController.swift; sourceTree = "<group>"; };
+		33A102CD28E5E71400D4DBED /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		339150AE28E45FC000D9DB97 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3398D36528DB7ECF00DBCFF7 /* SignInViewController.swift */,
+				339150AF28E4BBB100D9DB97 /* FoodViewController.swift */,
+				33A102C928E5CB8700D4DBED /* PizzaViewController.swift */,
+				33A102CB28E5E70500D4DBED /* IngridientsViewController.swift */,
+				33A102CD28E5E71400D4DBED /* PayViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3398D35528DB7ECF00DBCFF7 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +76,23 @@
 		3398D36028DB7ECF00DBCFF7 /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				33A102D128E600A600D4DBED /* Model */,
+				339150AE28E45FC000D9DB97 /* ViewControllers */,
 				3398D36128DB7ECF00DBCFF7 /* AppDelegate.swift */,
 				3398D36328DB7ECF00DBCFF7 /* SceneDelegate.swift */,
-				3398D36528DB7ECF00DBCFF7 /* ViewController.swift */,
 				3398D36728DB7ECF00DBCFF7 /* Main.storyboard */,
 				3398D36A28DB7ED100DBCFF7 /* Assets.xcassets */,
 				3398D36C28DB7ED100DBCFF7 /* LaunchScreen.storyboard */,
 				3398D36F28DB7ED100DBCFF7 /* Info.plist */,
 			);
 			path = UIKitDZ;
+			sourceTree = "<group>";
+		};
+		33A102D128E600A600D4DBED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3398D36628DB7ECF00DBCFF7 /* ViewController.swift in Sources */,
+				33A102CA28E5CB8700D4DBED /* PizzaViewController.swift in Sources */,
+				33A102CE28E5E71400D4DBED /* PayViewController.swift in Sources */,
+				3398D36628DB7ECF00DBCFF7 /* SignInViewController.swift in Sources */,
 				3398D36228DB7ECF00DBCFF7 /* AppDelegate.swift in Sources */,
+				339150B028E4BBB100D9DB97 /* FoodViewController.swift in Sources */,
 				3398D36428DB7ECF00DBCFF7 /* SceneDelegate.swift in Sources */,
+				33A102CC28E5E70500D4DBED /* IngridientsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
