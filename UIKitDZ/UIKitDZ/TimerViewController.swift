@@ -8,6 +8,7 @@
 import UIKit
 /// Экран с таймером
 class TimerViewController: UIViewController {
+    
     // MARK: IBOutlet
     @IBOutlet weak var timerPickerView: UIPickerView!
     @IBOutlet weak var signalForTimerButton: UIButton!
