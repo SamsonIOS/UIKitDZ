@@ -4,8 +4,6 @@
 //
 //  Created by coder on 02.10.2022.
 //
-
-import Foundation
 import UIKit
 /// Делаем расширение для пикеров цвета и колличества строк в лэйбле
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {

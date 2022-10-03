@@ -7,9 +7,9 @@
 
 import UIKit
 /// Первый экран с пикерами, слайдером и лэйблом
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    // MARK: Private proreties
+    // MARK: Private properties
     private lazy var fontSlider: UISlider = {
         var slider = UISlider(frame: CGRect(
             x: 0,
@@ -88,8 +88,8 @@ class ViewController: UIViewController {
         createAddButton()
     }
     
-    // MARK: Public Methods
-    func setViewControler() {
+    // MARK: Private Methods
+    private func setViewControler() {
         title = "Первый экран"
         view.backgroundColor = .white
         view.addSubview(someTextInLabel)
@@ -98,16 +98,16 @@ class ViewController: UIViewController {
         view.addSubview(numberOfLinesPicker)
     }
     
-    func createAddButton() {
+    private func createAddButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem:
             .add,
             target: self,
-            action: #selector(addTitleInLabel))
+            action: #selector(addTitleInLabelAction))
     }
     
     // MARK: @Objc private func
-    @objc private func addTitleInLabel() {
+    @objc private func addTitleInLabelAction() {
         let alertController = UIAlertController(
             title: .none,
             message: "Введите ваше слово",

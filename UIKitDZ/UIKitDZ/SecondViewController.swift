@@ -7,7 +7,7 @@
 
 import UIKit
 /// Второй экран для таб бара
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -15,8 +15,8 @@ class SecondViewController: UIViewController {
         setViewController()
     }
     
-    // MARK: Public Methods
-    func setViewController() {
+    // MARK: Private Methods
+    private func setViewController() {
         title = "Второй экран"
         view.backgroundColor = .green
     }
