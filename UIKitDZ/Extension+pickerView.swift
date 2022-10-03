@@ -5,10 +5,10 @@
 //  Created by coder on 03.10.2022.
 //
 
-import Foundation
 import UIKit
-/// Расширяем наш экран с таймером для часов минут и секунд
+// MARK: UIPickerViewDelegate, UIPickerViewDataSource
 extension TimerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3
     }
@@ -30,7 +30,9 @@ extension TimerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         _ pickerView: UIPickerView,
         attributedTitleForRow row: Int,
         forComponent component: Int) -> NSAttributedString? {
-            var timeForElements = ""
+            
+        var timeForElements = ""
+            
         switch component {
         case 0:
             timeForElements = "\(hours[row]) h"
@@ -41,9 +43,10 @@ extension TimerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break
         }
-            let attributedString = NSAttributedString(
-                string: timeForElements,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            
+        let attributedString = NSAttributedString(
+            string: timeForElements,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             return attributedString
     }
 }

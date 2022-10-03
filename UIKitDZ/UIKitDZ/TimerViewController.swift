@@ -7,11 +7,11 @@
 
 import UIKit
 /// Экран с таймером
-class TimerViewController: UIViewController {
+final class TimerViewController: UIViewController {
     
-    // MARK: IBOutlet
-    @IBOutlet weak var timerPickerView: UIPickerView!
-    @IBOutlet weak var signalForTimerButton: UIButton!
+    // MARK: @IBOutlet private
+    @IBOutlet private weak var timerPickerView: UIPickerView!
+    @IBOutlet private weak var signalForTimerButton: UIButton!
     
     // MARK: Public properties
     let hours = Array(0...23)
@@ -23,8 +23,8 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         setPicker()
     }
-    // MARK: Public Methods
-    func setPicker() {
+    // MARK: Private Methods
+    private func setPicker() {
         timerPickerView.delegate = self
         timerPickerView.dataSource = self
         signalForTimerButton.layer.cornerRadius = 10
