@@ -28,27 +28,29 @@ class ViewController: UIViewController {
     
     private lazy var changeColorPicker: UIPickerView = {
         var picker = UIPickerView(frame: CGRect(
-            x: 0,
+            x: 30,
             y: 600,
             width: 150,
             height: 150))
         picker.dataSource = self
         picker.delegate = self
+        picker.layer.borderWidth = 1
+        picker.layer.borderColor = UIColor.green.cgColor
         picker.tag = 0
-        picker.center.x = view.center.x
         return picker
     }()
     
     private lazy var numberOfLinesPicker: UIPickerView = {
         var picker = UIPickerView(frame: CGRect(
-            x: 0,
-            y: 350,
+            x: 230,
+            y: 600,
             width: 150,
             height: 150))
         picker.dataSource = self
         picker.delegate = self
+        picker.layer.borderWidth = 1
+        picker.layer.borderColor = UIColor.green.cgColor
         picker.tag = 1
-        picker.center.x = view.center.x
         return picker
     }()
     
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
         label.text = "Введите текст"
         label.numberOfLines = 0
         label.shadowColor = .black
+        label.lineBreakMode = .byClipping
         label.shadowOffset = CGSize(width: 1, height: 1)
         return label
     }()
