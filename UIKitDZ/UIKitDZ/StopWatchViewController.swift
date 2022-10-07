@@ -10,7 +10,7 @@ import UIKit
 final class StopWatchViewController: UIViewController {
     
     // MARK: @IBOutlet properties
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
