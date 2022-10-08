@@ -74,6 +74,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="1GO-ya-XQc" id="xk1-BY-NsM"/>
                         <outlet property="passwordTextField" destination="3IV-Gp-r3W" id="jBn-lu-p5m"/>
+                        <outlet property="registrationButton" destination="Pz2-y1-4IH" id="oSB-V5-zzd"/>
+                        <outlet property="signInButton" destination="xSn-22-23l" id="Z9I-lE-Bkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,12 +7,8 @@
 
 import UIKit
 
-/// Экран с регистрацией
-class RegistrationViewController: UIViewController {
-    
-    private enum Constants {
-        static let emptyText = ""
-    }
+/// Экран с регистрацией пользователя
+final class RegistrationViewController: UIViewController {
     
     // MARK: @IBOutlet properties
     @IBOutlet weak var phoneTextField: UITextField!
@@ -22,33 +18,35 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailUserTextField: UITextField!
     @IBOutlet weak var registrationButton: UIButton!
     
-    let defaults = UserDefaults.standard
+    // MARK: Private properties
+    private let defaults = UserDefaults.standard
+    
+    private enum Constants {
+        static let emptyText = ""
+    }
     
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateTextField()
         createNotificationCenter()
-        
     }
     
-    // MARK: Methods
-    
-    func delegateTextField() {
-        passwordUserTextField.delegate = self
-        emailUserTextField.delegate = self
-    }
-    
-    // MARK: @IBAction
-    @IBAction func registrationButtonAction(_ sender: Any) {
+    // MARK: @IBAction private action
+    @IBAction private func registrationButtonAction(_ sender: Any) {
         let email = emailUserTextField.text ?? Constants.emptyText
         let password = passwordUserTextField.text ?? Constants.emptyText
         
         guard InfoUser.info.userDataMap[emailUserTextField.text ?? ""] != nil else {
-
-            InfoUser.info.userDataMap[email] = password
-            UserDefaults.standard.set(InfoUser.info.userDataMap, forKey: "userData")
-            dismiss(animated: true)
+            let alertController = UIAlertController(
+                title: .none, message: "Вы успешно зарегистрировались", preferredStyle: .alert)
+            let alertControllerAction = UIAlertAction(title: "OK", style: .cancel) { _ in
+                InfoUser.info.userDataMap[email] = password
+                UserDefaults.standard.set(InfoUser.info.userDataMap, forKey: "userData")
+                self.dismiss(animated: true)
+            }
+            alertController.addAction(alertControllerAction)
+            present(alertController, animated: true)
             return
         }
         
@@ -59,6 +57,17 @@ class RegistrationViewController: UIViewController {
         let alertControllerAction = UIAlertAction(title: "OK", style: .cancel)
         alertController.addAction(alertControllerAction)
         present(alertController, animated: true)
+    }
+    
+    // MARK: Private Methods
+    private func delegateTextField() {
+        passwordUserTextField.delegate = self
+        emailUserTextField.delegate = self
+        phoneTextField.delegate = self
+        rePasswordUserTextField.delegate = self
+        loginUserTextField.delegate = self
+        passwordUserTextField.isSecureTextEntry = true
+        rePasswordUserTextField.isSecureTextEntry = true
     }
     
     private func createNotificationCenter() {
@@ -74,10 +83,13 @@ class RegistrationViewController: UIViewController {
             queue: nil) { _ in
                 self.view.frame.origin.y = 0
             }
+        
+        registrationButton.layer.cornerRadius = 15
+        registrationButton.clipsToBounds = true
     }
 }
 
-// MARK: UITextFieldDelegate
+// MARK: Extension - RegistrationViewController + UITextFieldDelegate
 extension RegistrationViewController: UITextFieldDelegate {
     
     private func switchBasedNextTextField(_ textField: UITextField) {
