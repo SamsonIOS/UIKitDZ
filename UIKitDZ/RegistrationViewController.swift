@@ -6,22 +6,18 @@
 //
 
 import UIKit
-/// Структура для наших ключей
-struct KeysDefaults {
-    static let keyPhone = "phone"
-    static let keyLogin = "login"
-    static let keyPassword = "password"
-    static let keyRePassword = "rePassword"
-    static let keyEmail = "email"
-}
 
 /// Экран с регистрацией
 class RegistrationViewController: UIViewController {
     
+    private enum Constants {
+        static let emptyText = ""
+    }
+    
     // MARK: @IBOutlet properties
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var loginUserTextField: UITextField!
-    @IBOutlet weak var psswordUserTextField: UITextField!
+    @IBOutlet weak var passwordUserTextField: UITextField!
     @IBOutlet weak var rePasswordUserTextField: UITextField!
     @IBOutlet weak var emailUserTextField: UITextField!
     @IBOutlet weak var registrationButton: UIButton!
@@ -32,37 +28,52 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateTextField()
+        createNotificationCenter()
         
     }
     
     // MARK: Methods
     
     func delegateTextField() {
-        phoneTextField.delegate = self
-        loginUserTextField.delegate = self
-        psswordUserTextField.delegate = self
-        rePasswordUserTextField.delegate = self
+        passwordUserTextField.delegate = self
         emailUserTextField.delegate = self
     }
     
     // MARK: @IBAction
     @IBAction func registrationButtonAction(_ sender: Any) {
+        let email = emailUserTextField.text ?? Constants.emptyText
+        let password = passwordUserTextField.text ?? Constants.emptyText
         
-        let phone = phoneTextField.text ?? ""
-        let login = loginUserTextField.text ?? ""
-        let password = psswordUserTextField.text ?? ""
-        let rePassword = rePasswordUserTextField.text ?? ""
-        let email = emailUserTextField.text ?? ""
-        
-        if !phone.isEmpty && !login.isEmpty && !password.isEmpty && !rePassword.isEmpty && !email.isEmpty {
-            print("hello")
-            defaults.set(phone, forKey: KeysDefaults.keyPhone)
-            defaults.set(login, forKey: KeysDefaults.keyLogin)
-            defaults.set(password, forKey: KeysDefaults.keyPassword)
-            defaults.set(rePassword, forKey: KeysDefaults.keyRePassword)
-            defaults.set(email, forKey: KeysDefaults.keyEmail)
+        guard InfoUser.info.userDataMap[emailUserTextField.text ?? ""] != nil else {
+
+            InfoUser.info.userDataMap[email] = password
+            UserDefaults.standard.set(InfoUser.info.userDataMap, forKey: "userData")
+            dismiss(animated: true)
+            return
         }
-        dismiss(animated: true)
+        
+        let alertController = UIAlertController(
+            title: "Ошибка",
+            message: "Такая почта уже существует",
+            preferredStyle: .alert)
+        let alertControllerAction = UIAlertAction(title: "OK", style: .cancel)
+        alertController.addAction(alertControllerAction)
+        present(alertController, animated: true)
+    }
+    
+    private func createNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            forName: UIResponder.keyboardWillShowNotification,
+            object: nil,
+            queue: nil) { _ in
+                self.view.frame.origin.y = -80
+            }
+        NotificationCenter.default.addObserver(
+            forName: UIResponder.keyboardWillHideNotification,
+            object: nil,
+            queue: nil) { _ in
+                self.view.frame.origin.y = 0
+            }
     }
 }
 
@@ -74,8 +85,8 @@ extension RegistrationViewController: UITextFieldDelegate {
         case phoneTextField:
             loginUserTextField.becomeFirstResponder()
         case loginUserTextField:
-            psswordUserTextField.becomeFirstResponder()
-        case psswordUserTextField:
+            passwordUserTextField.becomeFirstResponder()
+        case passwordUserTextField:
             rePasswordUserTextField.becomeFirstResponder()
         case rePasswordUserTextField:
             emailUserTextField.becomeFirstResponder()

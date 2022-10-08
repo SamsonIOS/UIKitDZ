@@ -73,11 +73,72 @@
                     <navigationItem key="navigationItem" id="3LO-Mu-8lu"/>
                     <connections>
                         <outlet property="emailTextField" destination="1GO-ya-XQc" id="xk1-BY-NsM"/>
+                        <outlet property="passwordTextField" destination="3IV-Gp-r3W" id="jBn-lu-p5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146.37681159420291" y="-27.455357142857142"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="5rK-vi-x9y">
+            <objects>
+                <viewController id="5Ao-eX-DE3" customClass="SecondViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QjJ-DT-NER">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cDk-81-v6x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Elw-w8-x60"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mq7-4D-TTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="-155"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="4yN-vm-E0D">
+            <objects>
+                <viewController id="OvR-RP-O2P" customClass="TextViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fre-BP-iU3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Наташка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knt-vE-aFw">
+                                <rect key="frame" x="20" y="309" width="374" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.49202345450000001" green="0.7469438585" blue="0.76871567959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="63"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="voG-el-5fd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="kmc-Hr-bpI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ike-we-DSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857.9710144927537" y="-810.26785714285711"/>
+        </scene>
+        <!--Base Tab Bar Controller-->
+        <scene sceneID="cq2-d0-qnd">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarVC" id="eLp-iy-mJS" customClass="BaseTabBarController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="68H-DX-K3B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OvR-RP-O2P" kind="relationship" relationship="viewControllers" id="rx4-cV-DzI"/>
+                        <segue destination="5Ao-eX-DE3" kind="relationship" relationship="viewControllers" id="rDN-4H-vBe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONk-Gb-Z3k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="-483"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="rlB-Pc-0iy">
@@ -156,56 +217,15 @@
                     <connections>
                         <outlet property="emailUserTextField" destination="ofc-Eg-pCR" id="Hbv-3S-S7L"/>
                         <outlet property="loginUserTextField" destination="7Mx-81-mtq" id="BnJ-dO-IC3"/>
+                        <outlet property="passwordUserTextField" destination="Unq-Pw-vHd" id="JYy-My-xx9"/>
                         <outlet property="phoneTextField" destination="Dw8-Ih-Tt6" id="5gj-x3-OW8"/>
-                        <outlet property="psswordUserTextField" destination="Unq-Pw-vHd" id="YA5-Qe-RKw"/>
                         <outlet property="rePasswordUserTextField" destination="9NO-dX-QBx" id="QD0-H8-9qy"/>
                         <outlet property="registrationButton" destination="Acw-Yi-CYG" id="IXZ-j5-WeP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPL-3f-CZA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="627.536231884058" y="370.98214285714283"/>
-        </scene>
-        <!--Text View Controller-->
-        <scene sceneID="FDg-Ym-L4r">
-            <objects>
-                <viewController id="Vni-NY-f6I" customClass="TextViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Um-8S-1jc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYj-AB-V88">
-                                <rect key="frame" x="20" y="91" width="374" height="306"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Перечисления в Swift - типы “первого класса”. Они обладают особенностями, которые обычно поддерживаются классами, например, вычисляемые свойства, для предоставления дополнительной информации о текущем значении перечисления, методы экземпляра для дополнительной функциональности, относящейся к значениям, которые предоставляет перечисление.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vEC-zD-Px0">
-                                <rect key="frame" x="18" y="615" width="378" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KOD-OG-19z">
-                                <rect key="frame" x="345" y="753" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Тема" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqA-1V-dV0">
-                                <rect key="frame" x="285" y="753" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="nd6-JK-hIZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vx6-ji-aBL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cGc-tA-We8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="627.536231884058" y="-327.45535714285711"/>
+            <point key="canvasLocation" x="854" y="236"/>
         </scene>
     </scenes>
     <resources>
@@ -215,6 +235,9 @@
         <image name="user" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
