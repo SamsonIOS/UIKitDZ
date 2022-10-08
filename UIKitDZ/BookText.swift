@@ -6,8 +6,9 @@
 //
 
 import UIKit
+
 /// текст для книги
-class BookText: NSObject {
+final class BookText: NSObject {
     let text = """
 Swift - новый язык программирования для разработки приложений под iOS,
  macOS, watchOS и tvOS.
