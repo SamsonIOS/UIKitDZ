@@ -10,16 +10,16 @@ import UIKit
 /// Экран входа в приложение
 final class SignInViewController: UIViewController {
     
-    // MARK: @IBOutlet
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var registrationButton: UIButton!
-    
-    // MARK: Private Components
+    // MARK: Contants
     private enum Constants {
         static let emptyText = ""
     }
+    
+    // MARK: @IBOutlet
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signInButton: UIButton!
+    @IBOutlet private weak var registrationButton: UIButton!
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -32,16 +32,7 @@ final class SignInViewController: UIViewController {
     @IBAction private func signInAction(_ sender: Any) {
         
         guard InfoUser.info.userDataMap[emailTextField.text ?? Constants.emptyText] == passwordTextField.text else {
-            
-            let alertController = UIAlertController(
-                title: "Ошибка",
-                message: "Почта/пароль wrong или зарегистрируйтесь",
-                preferredStyle: .alert)
-            
-            let alertControllerAction = UIAlertAction(title: "OK", style: .cancel)
-            
-            alertController.addAction(alertControllerAction)
-            present(alertController, animated: true)
+            tapOkButton(title: "Ошибка", message: "Пароль/почта неверно", handler: nil)
             return
         }
         

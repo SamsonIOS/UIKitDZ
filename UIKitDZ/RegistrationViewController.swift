@@ -10,20 +10,19 @@ import UIKit
 /// Экран с регистрацией пользователя
 final class RegistrationViewController: UIViewController {
     
-    // MARK: @IBOutlet properties
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var loginUserTextField: UITextField!
-    @IBOutlet weak var passwordUserTextField: UITextField!
-    @IBOutlet weak var rePasswordUserTextField: UITextField!
-    @IBOutlet weak var emailUserTextField: UITextField!
-    @IBOutlet weak var registrationButton: UIButton!
-    
-    // MARK: Private properties
-    private let defaults = UserDefaults.standard
-    
+    // MARK: Constants
     private enum Constants {
         static let emptyText = ""
+        static let defaults = UserDefaults.standard
     }
+    
+    // MARK: @IBOutlet properties
+    @IBOutlet private weak var phoneTextField: UITextField!
+    @IBOutlet private weak var loginUserTextField: UITextField!
+    @IBOutlet private weak var passwordUserTextField: UITextField!
+    @IBOutlet private weak var rePasswordUserTextField: UITextField!
+    @IBOutlet private weak var emailUserTextField: UITextField!
+    @IBOutlet private weak var registrationButton: UIButton!
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -38,25 +37,15 @@ final class RegistrationViewController: UIViewController {
         let password = passwordUserTextField.text ?? Constants.emptyText
         
         guard InfoUser.info.userDataMap[emailUserTextField.text ?? ""] != nil else {
-            let alertController = UIAlertController(
-                title: .none, message: "Вы успешно зарегистрировались", preferredStyle: .alert)
-            let alertControllerAction = UIAlertAction(title: "OK", style: .cancel) { _ in
+            tapOkButton(title: nil, message: "Вы успешно зарегистрированы") {
                 InfoUser.info.userDataMap[email] = password
-                UserDefaults.standard.set(InfoUser.info.userDataMap, forKey: "userData")
+                Constants.defaults.set(InfoUser.info.userDataMap, forKey: "userData")
                 self.dismiss(animated: true)
             }
-            alertController.addAction(alertControllerAction)
-            present(alertController, animated: true)
             return
         }
         
-        let alertController = UIAlertController(
-            title: "Ошибка",
-            message: "Такая почта уже существует",
-            preferredStyle: .alert)
-        let alertControllerAction = UIAlertAction(title: "OK", style: .cancel)
-        alertController.addAction(alertControllerAction)
-        present(alertController, animated: true)
+        tapOkButton(title: "Ошибка", message: "Такая почта уже существует", handler: nil)
     }
     
     // MARK: Private Methods
@@ -86,6 +75,19 @@ final class RegistrationViewController: UIViewController {
         
         registrationButton.layer.cornerRadius = 15
         registrationButton.clipsToBounds = true
+    }
+}
+
+// MARK: Extension - UIViewController + AlertController
+extension UIViewController {
+    typealias Closure = (() -> ())?
+    func tapOkButton(title: String?, message: String, handler: Closure) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertControllerAction = UIAlertAction(title: "OK", style: .default) { _ in
+            handler?()
+        }
+        alertController.addAction(alertControllerAction)
+        present(alertController, animated: true)
     }
 }
 

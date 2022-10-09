@@ -8,12 +8,16 @@
 import UIKit
 
 /// Таб бар контроллер
-class BaseTabBarController: UITabBarController {
+final class BaseTabBarController: UITabBarController {
     
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setViewControllers()
+    }
+    
+    // MARK: Private Methods
+    private func setViewControllers() {
         tabBar.barTintColor = .systemGroupedBackground
         
         viewControllers = [
@@ -23,7 +27,6 @@ class BaseTabBarController: UITabBarController {
         ]
     }
     
-    // MARK: Private Methods
     private func createController(
         viewController: UIViewController, title: String, imageName: String) -> UIViewController {
             

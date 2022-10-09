@@ -44,12 +44,12 @@ final class TextViewController: UIViewController {
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         addElementsOnView()
     }
     
     // MARK: Private Methods
     private func addElementsOnView() {
+        view.backgroundColor = .yellow
         view.addSubview(colorSwitch)
         view.addSubview(statusLabel)
         view.addSubview(fontSlider)
